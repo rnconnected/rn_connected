@@ -1,0 +1,31 @@
+.signupBtn,
+.loginBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-color);
+    padding: .5rem .8rem;
+    font-weight: 500;
+    border-radius: .3rem;
+}
+
+.loginBtn {
+    border: 1px solid var(--secondary-color);
+}
+
+.signupBtn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.loginBtn:hover,
+.signupBtn:hover {
+    background-color: var(--tetiary-color);
+    color: white;
+}
+
+.loginBtn:active,
+.signupBtn:active {
+    background-color: #3c7e7e;
+    color: white;
+}

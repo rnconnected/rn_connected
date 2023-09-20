@@ -1,0 +1,303 @@
+.post_Card {
+    width: clamp(25rem, 40vw, 45rem);
+    box-shadow: 2px 2px 15px lightgray;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.posters_Header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.posters_data {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.friend_Status {
+    font-size: clamp(.9rem, 1.5vw, 1rem);
+}
+
+.posters_img_Cont {
+    width: clamp(3rem, 5vw, 3.5rem);
+    height: clamp(3rem, 5vw, 3.5rem);
+    outline: 1px solid gray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: inset 1px 1px 5px 1px lightgray;
+}
+
+.posters_img {
+    width: clamp(3.5rem, 5vw, 4rem);
+    height: auto;
+}
+
+.posters_infoTxt {
+    font-size: clamp(.9rem, 1.5vw, .1rem);
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.menu_btnRight {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.menuBtn {
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.posters_words {
+    padding: .5rem 1rem;
+}
+
+.postImages {
+    width: 100%;
+    height: auto;
+    padding: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .1rem;
+    overflow: hidden;
+}
+
+.post_img {
+    width: 10rem;
+    height: auto;
+    cursor: pointer;
+    flex-grow: 1;
+    border: 1px solid lightgray;
+}
+
+.reactions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+}
+
+.likes {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.react_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.7rem;
+    width: 1.7rem;
+    background: rgba(3, 148, 3, 0.5);
+    border-radius: 50%;
+}
+
+.heart {
+    color: darkgreen;
+}
+
+.liked {
+    color: rgba(0, 128, 0, 1);
+}
+
+.like_icon span,
+.comment_icon span,
+.repost span {
+    font-size: clamp(.9rem, 1.5vw, 1rem);
+}
+
+.likeNo,
+.comment_no,
+.shares_no {
+    font-size: clamp(.8rem, 1.5vw, 1rem);
+}
+
+.Ricon {
+    font-size: 1.1rem;
+}
+
+.react_Left {
+    display: flex;
+    gap: .2rem;
+}
+
+.reaction_Icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .2em;
+    border-top: 2px solid lightgray;
+}
+
+.repost,
+.comment_icon,
+.like_icon {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    width: 30%;
+    justify-content: center;
+}
+
+.repost:hover,
+.comment_icon:hover,
+.like_icon:hover {
+    background-color: whitesmoke;
+}
+
+@media only screen and (max-width: 370px) {
+    .post_Card {
+        width: 90%;
+    }
+
+    .posters_img_Cont {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .posters_Header {
+        padding: 1rem .5rem;
+    }
+
+    .posters_data {
+        gap: 0.5rem;
+    }
+
+    .posters_img {
+        width: 2rem;
+        height: auto;
+    }
+
+    .posters_infoTxt {
+        font-size: .8rem;
+    }
+
+    .menu_btnRight,
+    .menuBtn {
+        gap: .2rem;
+        font-size: .8rem;
+    }
+}
+
+
+/* this is the style for the comment section xxxxxxxxxxxxxxxxxxxxxxxx  */
+.comment_section {
+    width: 100%;
+    padding: .5rem;
+}
+
+.main_comments {
+    display: flex;
+    align-items: start;
+    gap: .5rem;
+}
+
+.commentor_img_Cont {
+    width: clamp(2rem, 5vw, 2.5rem);
+    height: clamp(2rem, 5vw, 2.5rem);
+    outline: 1px solid gray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: inset 1px 1px 5px 1px lightgray;
+}
+
+.commentors_img {
+    width: clamp(2rem, 5vw, 2.5rem);
+    height: auto;
+}
+
+.eachComment_wrapper {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.eachComment {
+    background-color: #B5B7CB;
+    border-radius: .5rem;
+    padding: .5rem;
+    width: 100%;
+}
+
+.eachComment_reaction {
+    display: flex;
+    justify-content: space-between;
+    width: 10rem;
+    font-size: .8rem;
+}
+
+.eachComment_reaction span {
+    cursor: pointer;
+}
+
+.post_comment {
+    display: flex;
+    align-items: start;
+    gap: .5rem;
+    margin-top: 1rem;
+}
+
+.dunno {
+    font-size: clamp(.9rem, 1.5vw, 1.1rem);
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: space-between;
+    padding: .5rem .5rem 0 .5rem;
+    border-radius: .5rem;
+    border: 1px solid black;
+    gap: .3rem;
+}
+
+.comment_input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    resize: none;
+    overflow: hidden;
+    font-size: 1rem;
+}
+
+.plane {
+    display: inline;
+    cursor: pointer;
+}
+
+.comment_bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.emojiApi {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+#upload {
+    display: none;
+}
+
+.Ricon {
+    cursor: pointer;
+}

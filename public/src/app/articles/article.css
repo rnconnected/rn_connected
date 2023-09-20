@@ -1,0 +1,31 @@
+article {
+    width: 95%;
+    margin: 1.5rem 0;
+}
+
+.art_cont {
+    display: flex;
+    gap: 1rem;
+}
+
+.art_img {
+    width: 30%;
+    height: auto;
+}
+
+.info_sec {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+}
+
+.topic {
+    font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+}
+
+.art_txt {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    margin-top: 1rem;
+}
+

@@ -1,0 +1,222 @@
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.info_Section {
+    width: clamp(24rem, 30vw, 27rem);
+    box-shadow: 2px 2px 15px lightgray;
+    padding: 1rem 0 0 0;
+    border-radius: .5rem;
+}
+
+.acctManager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.acctUser,
+.recruiter {
+    display: flex;
+    gap: .4rem;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+    width: 35%;
+    padding: .5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+.acctUser.active,
+.recruiter.active {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.recruiter {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+}
+
+.acctUser {
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+}
+
+.inputSection {
+    padding: 0 2rem;
+}
+
+.formSection {
+    position: relative;
+    border: 2px solid var(--secondary-color);
+    padding: .2rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+    border-radius: .3rem;
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    padding: .1rem .2rem;
+    top: -25%;
+    left: 1rem;
+    font-weight: 600;
+    font-size: clamp(.9rem, 1.5vw, 1rem);
+}
+
+.input {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: .3rem;
+}
+
+.errorMessage {
+    color: red;
+    font-size: .8rem;
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0 0 0;
+}
+
+.fgtPassword {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: .5rem;
+    text-decoration: none;
+}
+
+.ftg_psmall {
+    color: brown;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ftg_psmall:hover {
+    text-decoration: underline;
+}
+
+.confirmLoginBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: .7rem;
+
+}
+
+.confirmLoginBtn button {
+    width: 80%;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: .6rem;
+    border-radius: .3rem;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.or {
+    text-align: center;
+}
+
+.googleLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.loginGoggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+    width: 80%;
+    border: 1px solid var(--secondary-color);
+    border-radius: .3rem;
+    padding: .6rem;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.confirmLoginBtn button:hover {
+    /* background-color: rgb(25, 70, 25); */
+    border: 2px solid powderblue;
+}
+
+.loginGoggle:hover {
+    box-shadow: inset 2px 2px 10px var(--secondary-color);
+}
+
+
+
+.loginGoggle:active,
+.confirmLoginBtn button:active {
+    transform: scale(.98);
+}
+
+.loginFooter {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: .3rem;
+    padding: 1rem 0;
+}
+
+.loginFooter small {
+    text-align: center;
+}
+
+.LFRight {
+    color: var(--secondary-color);
+}
+
+.LFRight:hover {
+    text-decoration: underline;
+}
+
+.login_iconl,
+.login_iconr {
+    width: clamp(10rem, 25vw, 20rem);
+    height: auto;
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+}
+
+.login_iconl {
+    left: 0;
+}
+
+.login_iconr {
+    right: 0;
+}
+
+.loadOverlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(.5rem);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadOverlay.active {
+    display: flex;
+}

@@ -1,0 +1,93 @@
+ .faq_cont {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 2rem;
+ }
+
+ .faq {
+     display: flex;
+     flex-direction: column;
+     width: clamp(30rem, 55vw, 60rem);
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+
+ .faq-title {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 1rem;
+     color: #F7FDFD;
+     font-style: normal;
+     background: #277CA2;
+     font-size: clamp(1.5rem, 3vw, 2.3rem);
+ }
+
+ .faq_items {
+     padding: 1rem;
+     background-color: #f7fdfd;
+     font-family: sans-serif;
+ }
+
+ .faq-item-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     cursor: pointer;
+     padding: 1rem;
+
+ }
+
+ .faq_item_title {
+     font-size: clamp(1rem, 1.5vw, 1.3rem);
+     width: 90%;
+     transition: 600ms;
+ }
+
+ .addbold {
+     font-weight: bold;
+ }
+
+
+ .faq-item-icon {
+     font-size: clamp(1rem, 1.5vw, 1.3rem);
+ }
+
+ .faq-item-body {
+     font-size: clamp(1rem, 1.5vw, 1.3rem);
+     text-justify: justify;
+     line-height: 1.5;
+     padding: 0 1rem;
+ }
+
+ .btn_cont {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 1rem 0;
+ }
+
+
+ .btn-load-more {
+     padding: 1rem clamp(1rem, 1.5vw, 2rem);
+     font-size: clamp(1rem, 1.5vw, 1.3rem);
+     background-color: var(--footerbottom-color);
+     border-radius: .5rem;
+     cursor: pointer;
+     border: none;
+     color: white;
+
+ }
+
+ .ReactCollapse--collapse {
+     transition: height 600ms;
+ }
+
+ .btn-load-more:hover {
+     background-color: #419797;
+ }
+
+ .btn-load-more:active {
+     transform: scale(.95);
+ }

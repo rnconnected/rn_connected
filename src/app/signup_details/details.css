@@ -1,0 +1,93 @@
+.details_cont {
+    margin-top: 7rem;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_card {
+    width: clamp(20rem, 40vw, 30rem);
+    box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.04), 0px 20px 25px -5px rgba(0, 0, 0, 0.10);
+    border-radius: .6rem;
+    overflow: hidden;
+}
+
+.detail_lower {
+    padding: 1rem clamp(1rem, 3vw, 2rem);
+}
+
+.detail_lower .h2 {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    text-align: center;
+    font-weight: 600;
+}
+
+.stageCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #174960;
+}
+
+.stages {
+    display: flex;
+}
+
+.stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: lightgrey;
+}
+
+.s1,
+.s2 {
+    color: white;
+}
+
+.formSection {
+    position: relative;
+    border: 2px solid var(--secondary-color);
+    padding: .2rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+    border-radius: .3rem;
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    padding: .1rem .2rem;
+    top: -25%;
+    left: 1rem;
+    font-weight: 600;
+    font-size: clamp(.9rem, 1.5vw, 1rem);
+}
+
+.input {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: .3rem;
+}
+
+.confirm_section {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm_btn {
+    background-color: #111858;
+    color: white;
+    width: clamp(10rem, 15vw, 15rem);
+    padding: .5rem;
+    border-radius: 8px;
+    text-align: center;
+}

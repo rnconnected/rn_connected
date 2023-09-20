@@ -1,0 +1,324 @@
+.headIntro {
+    height: clamp(17rem, 45vw, 45rem);
+    overflow: hidden;
+    position: relative;
+}
+
+.header_bg {
+    width: 100%;
+    height: 100%;
+    background-image: url("/about/about bg.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header_img {
+    height: 90%;
+    width: auto;
+}
+
+.All_txt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: whitesmoke;
+    line-height: 1.5;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: clamp(1rem, 10vw, 10rem);
+}
+
+@media only screen and (max-width: 650px) {
+    .All_txt {
+        width: 60%;
+    }
+    
+}
+
+.All_txt h1 {
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+    margin-bottom: clamp(.7rem, 1.5vw, 1rem);
+}
+
+.All_txt div {
+    font-size: clamp(.95rem, 1.5vw, 1.25rem);
+    margin-bottom: clamp(.5rem, 1.5vw, 1.5rem);
+}
+
+.txt {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    text-justify: justify;
+}
+
+.explore_btn {
+    background-color: var(--btn-color);
+    color: white;
+    padding: clamp(.5rem, 1.5vw, .7rem) clamp(.7rem, 1.5vw, 1.5rem);
+    border-radius: .5rem;
+    border: none;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    cursor: pointer
+}
+
+/* styling the vision section */
+.aim_section {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.aim_section2 {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.vision_section {
+    display: flex;
+    gap: 1rem;
+    /* width: 90%; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vision_section2 {
+    display: flex;
+    gap: 1rem;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vision_left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vision_right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mission_left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mission_right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.txt_img,
+.txt_img2 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.sticks {
+    height: clamp(4rem, 7vw, 7rem);
+    width: auto;
+}
+
+.txt_img h1 {
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+    color: #B57500;
+}
+
+.vision_txt {
+    background-color: var(--footerbottom-color);
+    padding: 1rem 1.5rem;
+    color: white;
+    border-radius: .5rem;
+    width: clamp(20rem, 35vw, 30rem);
+}
+
+.vision_img {
+    width: clamp(24rem, 40vw, 45rem);
+    height: auto;
+    object-fit: cover;
+}
+
+/* styling the video player section */
+.video_bg {
+    background: radial-gradient(504.11% 136.10% at -0.00% 5.69%, rgba(41, 48, 108, 0.60) 0%, rgba(41, 48, 108, 0.32) 100%), linear-gradient(314deg, #2C2F4E 0%, rgba(34, 134, 176, 0.21) 46.84%, rgba(47, 60, 186, 0.78) 96.17%);
+    margin: 4rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.videobg_content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.video {
+    width: clamp(21.5rem, 40vw, 45rem);
+    height: auto;
+}
+
+/* end of the video section */
+
+/* styling the values section xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+.ourValues_section {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0;
+}
+
+.values_left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.valuesTxt {
+    background-color: var(--footerbottom-color);
+    padding: 1rem 1.5rem;
+    color: white;
+    width: clamp(24rem, 35vw, 30rem);
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+.txtimg_values {
+    width: clamp(25rem, 30vw, 35rem);
+    display: flex;
+    justify-content: center;
+}
+
+.right_cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.values_right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    width: clamp(22rem, 35vw, 40rem);
+}
+
+.values_icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #249636;
+}
+
+.values_icons+.values_icons {
+    color: #209BD0;
+}
+
+.values_icons+.values_icons+.values_icons {
+    color: #62421C;
+}
+
+.values_icons+.values_icons+.values_icons+.values_icons {
+    color: #601473;
+}
+
+.values_icons p {
+    text-align: center;
+}
+
+/* end of the values section */
+
+
+/* styling our patners section */
+.ourPatner_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.ourPatner_section h2 {
+    color: #111858;
+}
+
+.patners_cont {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.patners_img {
+    width: clamp(10rem, 15vw, 12rem);
+    height: auto;
+}
+
+
+
+
+/* building the responsiveness xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+@media only screen and (max-width: 60rem) {
+    .vision_section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: normal;
+    }
+
+    .vision_section2 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: normal;
+    }
+
+    .mission_right {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .txt_img {
+        width: clamp(25rem, 30vw, 35rem);
+        padding-left: 3rem;
+    }
+
+    .ourValues_section {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .txtimg_values {
+        justify-content: normal;
+    }
+
+    .valuesTxt {
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+}
+
+
+@media only screen and (max-width: 390px) {
+    .vision_left {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .vision_section {
+        width: 90%;
+    }
+}

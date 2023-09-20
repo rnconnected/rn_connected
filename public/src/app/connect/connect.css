@@ -1,0 +1,102 @@
+       .connect_main {
+           margin-top: 3rem;
+       }
+
+       .con_search_cont {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+
+       .inner_cont {
+           display: flex;
+           background-color: #EBF7FC;
+           border-radius: 8px;
+           font-weight: 550;
+       }
+
+       .con_label {
+           padding: .7rem 1rem;
+           border-radius: 8px;
+       }
+
+       .con_fname,
+       .con_lname {
+           border-left: 2px solid black;
+           border-right: none;
+           border-top: none;
+           border-bottom: none;
+           outline: none;
+           background-color: transparent;
+           padding: 0 .5rem;
+           font-size: clamp(1rem, 1.5vw, 1.1rem);
+           width: clamp(10rem, 20vw, 18rem);
+       }
+
+       .con_search_cont button {
+           background-color: #0C113E;
+           color: white;
+           font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+           border-top-right-radius: 8px;
+           border-bottom-right-radius: 8px;
+           padding: 0 .5rem;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+
+       .centervw.con {
+           margin: 1rem 0 3.5rem 0;
+           font-size: clamp(1rem, 1.5vw, 1.3rem);
+       }
+
+       .centervw {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           width: 100%;
+       }
+
+       .con_med_img {
+           width: 30%;
+           height: 100%;
+           overflow: hidden;
+           margin: 1rem 0;
+
+       }
+
+       .con_med_imgs {
+           width: 100%;
+           height: auto;
+       }
+
+
+
+       @media only screen and (max-width: 395px) {
+
+           .con_fname,
+           .con_lname {
+               width: 7rem;
+               font-size: .9rem;
+               padding: 0 .2rem;
+           }
+
+           .label {
+               padding: 0.5rem .4rem;
+           }
+
+       }
+
+
+       @media only screen and (max-width:49rem) {
+           .con_med_img {
+               width: 50%;
+               height: auto;
+               overflow: hidden;
+           }
+
+           .con_med_imgs {
+               height: 100%;
+               width: 100%;
+           }
+       }

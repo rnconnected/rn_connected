@@ -1,0 +1,89 @@
+.containerViewjob {
+    border: 2px solid var(--footerbottom-color);
+    border-radius: .5rem;
+    overflow: hidden;
+    height: 85vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.headSection {
+    background-color: var(--footerbottom-color);
+    padding: 1rem;
+    color: #ffff;
+}
+
+.jobName {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.margin_5rem {
+    margin: 1rem 0;
+}
+
+.applyBtn {
+    background: #14531E;
+    border: none;
+    color: white;
+    padding: .8rem .5rem;
+    width: clamp(8rem, 15vw, 15rem);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.Compensation,
+.dutyList,
+.requirements_skills {
+    padding: .5rem 1rem;
+    border-bottom: 2px solid var(--footerbottom-color);
+}
+
+.education {
+    padding: .5rem 1rem;
+}
+
+.Compensation b,
+.dutyList b,
+.requirements_skills b,
+.education b {
+    font-size: larger;
+}
+
+.salary {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    font-size: large;
+}
+
+.salary_icon {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}
+
+.money {
+    background-color: var(--footerbottom-color);
+    color: white;
+    padding: .7rem;
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    margin: 1rem 0;
+}
+
+.dateSection {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    padding: 0.5rem 1rem;
+}
