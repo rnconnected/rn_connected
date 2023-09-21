@@ -33,7 +33,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const userData = await appwriteService.createUserAccount(formData);
-      await account.createVerification("http://localhost:3000/email_success");
+      await account.createVerification("https://rn-connected.vercel.app/email_success");
       if (userData) {
         setAuthStatus(true);
         router.push("/verifyEmail");
