@@ -15,7 +15,7 @@ const SocialSignin = () => {
         "http://localhost:3000/signup"
       );
     } catch (e) {
-      toast.error(`${e.message}`);
+      console.error(`${e.message}`);
     }
   };
 

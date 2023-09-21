@@ -7,10 +7,10 @@ import "./signup.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import useAuth from "../../context/useAuth";
-import appwriteService, { account } from "../../appwrite/appwriteconfig";
-import SocialSignin from "../../app/googleAuth/google";
 import LoadJob from "../../components/load effects/loadjob";
+import appwriteService, { account } from "@/appwrite/appwriteconfig";
+import useAuth from "@/context/useAuth";
+import SocialSignin from "../googleAuth/google";
 
 const Signup = () => {
   const [acctUser, setAcctUser] = useState(true);

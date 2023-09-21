@@ -1,3 +1,4 @@
+
 import config from "@/config/config";
 import { Client, Account, ID } from "appwrite";
 import { type } from "os";
@@ -90,7 +91,7 @@ export class AppwriteService {
         try {
             return account.get();
         } catch (error) {
-            console.log("getCurrentUser", error);
+            console.log("getCurrentUser error: ", error);
             return null;
         }
     }

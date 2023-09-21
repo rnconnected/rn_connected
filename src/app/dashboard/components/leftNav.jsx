@@ -5,8 +5,8 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import appwriteService from "@/appwrite/appwriteconfig";
-// import useAuth from "@/context/useAuth";
+import appwriteService from "@/appwrite/appwriteconfig";
+import useAuth from "@/context/useAuth";
 
 const sidebar_List = [
   {
@@ -48,7 +48,7 @@ const sidebar_List = [
 
 const LeftNav = () => {
   const router = useRouter();
-  // const { setAuthStatus } = useAuth();
+  const { setAuthStatus } = useAuth();
  
     const logoutuser = async () => {
       try {

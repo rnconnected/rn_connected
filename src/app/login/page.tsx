@@ -8,9 +8,11 @@ import "./login.css";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import LoadJob from "@/components/load effects/loadjob";
-// import useAuth from "@/context/useAuth";
-// import appwriteService from "@/appwrite/appwriteconfig";
-// import SocialSignin from "../googleAuth/google";
+import useAuth from "@/context/useAuth";
+import appwriteService from "@/appwrite/appwriteconfig";
+import SocialSignin from "../googleAuth/google";
+
+
 
 const Login = () => {
   const router = useRouter();
