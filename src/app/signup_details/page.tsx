@@ -1,5 +1,4 @@
 "use client";
-
 import Nav from "@/components/login_header/nav";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import "src/app/signup_details/details.css";

@@ -6,8 +6,8 @@ import LeftNav from "src/app/dashboard/components/leftNav";
 import TopNav from "src/app/dashboard/feeds/feeds_components/topNav.jsx";
 import PostCard from "src/app/dashboard/feeds/feeds_components/postCards.jsx";
 import RightNav from "src/app/dashboard/feeds/feeds_components/rightNav.jsx";
-import appwriteService from "@/appwrite/appwriteconfig";
-import useAuth from "@/context/useAuth";
+// import appwriteService from "@/appwrite/appwriteconfig";
+// import useAuth from "@/context/useAuth";
 import Login from "@/app/login/page";
 
 const Profile = () => {
