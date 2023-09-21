@@ -3,10 +3,12 @@ import Nav from "@/components/login_header/nav";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import "src/app/signup_details/details.css";
 import React, { useState, useEffect, FormEvent } from 'react';
-import appwriteService from '@/appwrite/appwriteconfig';
+
 import { useRouter } from "next/navigation";
-import useAuth from "@/context/useAuth";
+
 import LoadJob from "@/components/load effects/loadjob";
+import useAuth from "@/context/useAuth";
+import appwriteService from "@/appwrite/appwriteconfig";
 
 
 const UpdateUser = () => {

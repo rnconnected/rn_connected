@@ -8,9 +8,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import LoadJob from "../../components/load effects/loadjob";
+import SocialSignin from "../googleAuth/google";
 import appwriteService, { account } from "@/appwrite/appwriteconfig";
 import useAuth from "@/context/useAuth";
-import SocialSignin from "../googleAuth/google";
 
 const Signup = () => {
   const [acctUser, setAcctUser] = useState(true);
@@ -33,7 +33,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const userData = await appwriteService.createUserAccount(formData);
-      await account.createVerification("https://rn-c-six.vercel.app/email_success");
+      await account.createVerification("http://localhost:3000/email_success");
       if (userData) {
         setAuthStatus(true);
         router.push("/verifyEmail");
