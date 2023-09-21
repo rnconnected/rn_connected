@@ -3,7 +3,7 @@ import "src/app/dashboard/feeds/feeds_components/rightNav.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-// import appwriteService from "@/appwrite/appwriteconfig";
+import appwriteService from "@/appwrite/appwriteconfig";
 
 const Suggested_Connection = [
   {
