@@ -1,6 +1,8 @@
 "use client";
 import { StreamChat, User } from "stream-chat";
 import "stream-chat-react/dist/css/v2/index.css";
+import "./layout.css";
+import LeftNav from "@/app/dashboard/components/leftNav";
 import {
   Chat,
   Channel,
@@ -12,7 +14,7 @@ import {
 } from "stream-chat-react";
 
 const userId = "ancient-boat-3";
-const userName = "ancient-boat-3";
+const userName = "Chimaobim Dike";
 
 const user: User = {
   id: userId,
@@ -33,16 +35,19 @@ const channel = chatClient.channel("messaging", "custom_channel_id", {
 });
 
 const App = () => (
-  <Chat client={chatClient} theme="str-chat__theme-darke">
-    <Channel channel={channel}>
-      <Window>
-        <ChannelHeader />
-        <MessageList />
-        <MessageInput />
-      </Window>
-      <Thread />
-    </Channel>
-  </Chat>
+  <div className="chat_div">
+    <LeftNav />
+    <Chat client={chatClient} theme="str-chat__theme-dark">
+      <Channel channel={channel}>
+        <Window>
+          <ChannelHeader />
+          <MessageList />
+          <MessageInput />
+        </Window>
+        <Thread />
+      </Channel>
+    </Chat>
+  </div>
 );
 
 export default App;
