@@ -12,7 +12,7 @@ const SocialSignin = () => {
       account.createOAuth2Session(
         "google",
         "http://localhost:3000/dashboard/feeds",
-        "http://localhost:3000/signup"
+        "http://localhost:3000/login",
       );
     } catch (e) {
       console.error(`${e.message}`);
