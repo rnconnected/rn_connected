@@ -11,7 +11,37 @@ import {
   MessageList,
   Thread,
   Window,
+  useChannelStateContext,
 } from "stream-chat-react";
+import { useState, useEffect } from "react";
+
+const Users = () => {
+  const { channel } = useChannelStateContext();
+  const [channelUsers, setChannelUsers] = useState<Array<{ name: string; online: boolean }>>([]);
+
+  useEffect(() => {
+    const updateChannelUsers = () => {
+      setChannelUsers(
+        Object.values(channel.state.members).map((user) => ({
+          name: user.user_id!,
+          online: !!user.user!.online,
+        })),
+      );
+    };
+
+    updateChannelUsers();
+  }, [ channel]);
+
+  return (
+    <ul className='users-list'>
+      {channelUsers.map((member) => (
+        <li key={member.name}>
+          {member.name} - {member.online ? 'online' : 'offline'}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 const userId = "ancient-boat-3";
 const userName = "Chimaobim Dike";
@@ -38,8 +68,10 @@ const App = () => (
   <div className="chat_div">
     <LeftNav />
     <Chat client={chatClient} theme="str-chat__theme-dark">
+      
       <Channel channel={channel}>
         <Window>
+          <Users />
           <ChannelHeader />
           <MessageList />
           <MessageInput />
