@@ -1,0 +1,154 @@
+ .make_postCont {
+     width: clamp(24rem, 50vw, 55rem);
+     height: fit-content;
+     background-color: white;
+     margin-top: 5rem;
+     border-radius: 1rem;
+ }
+
+ .make_post_top {
+     display: flex;
+     justify-content: space-between;
+     padding: 1rem 1.5rem 0 1.5rem;
+ }
+
+ .mp_userDp_cont {
+     display: flex;
+     align-items: center;
+     gap: clamp(.5rem, 1vw, 1rem);
+ }
+
+ .mp_dp {
+     width: clamp(3rem, 5vw, 3.5rem);
+     height: clamp(3rem, 5vw, 3.5rem);
+     border: 1px solid gray;
+     border-radius: 50%;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .mp_dpImg {
+     width: 100%;
+     height: auto;
+ }
+
+ .mp_username_postType small {
+     color: gray;
+     font-size: .8rem;
+ }
+
+ .mp_username {
+     font-weight: bold;
+     font-size: clamp(1rem, 2vw, 1.2rem);
+ }
+
+ .mp_cancel {
+     cursor: pointer;
+     height: 2rem;
+     width: 2rem;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .mp_cancel:hover {
+     background-color: lightgray;
+ }
+
+ .mp_input {
+     display: flex;
+     justify-content: space-between;
+     border: 1px solid black;
+     padding: 1rem;
+     min-height: 15rem;
+     border-radius: .5rem;
+     margin: 1rem;
+ }
+
+ .mp_input textarea {
+     width: 90%;
+     border: none;
+     outline: none;
+     background-color: transparent;
+     resize: none;
+ }
+
+ .emojis {
+     height: fit-content;
+     background-color: transparent;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     font-size: 1.1rem;
+     height: 2rem;
+     width: 2rem;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+ }
+
+ .emojis:hover {
+     background: lightgray;
+
+ }
+
+ .mp_icons {
+     display: flex;
+     gap: 1.5rem;
+     padding: 1rem;
+ }
+
+ .mp_icon {
+     display: inline-block;
+     overflow: hidden;
+     cursor: pointer;
+     position: relative;
+     margin-top: 1rem;
+ }
+
+ .mp_icon input[type="file"] {
+     position: absolute;
+     top: 0;
+     left: 0;
+     opacity: 0;
+     cursor: pointer;
+     width: 100%;
+     height: 100%;
+ }
+
+ .file-input-label {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+
+ .file-input-label>span:first-child {
+     font-size: 2rem;
+ }
+
+ .mp_post_btnCont {
+     border-top: 1px solid gray;
+     display: flex;
+     justify-content: flex-end;
+     padding: 1rem;
+ }
+
+ .mp_btn {
+     background-color: #111858;
+     color: white;
+     padding: .5rem;
+     width: 4rem;
+     text-align: center;
+     border-radius: 1rem;
+     cursor: pointer;
+ }
+
+ .mp_btn:active {
+     transform: scale(.95);
+ }

@@ -6,38 +6,45 @@ import LeftNav from "src/app/dashboard/components/leftNav";
 import TopNav from "src/app/dashboard/feeds/feeds_components/topNav.jsx";
 import PostCard from "src/app/dashboard/feeds/feeds_components/postCards.jsx";
 import RightNav from "src/app/dashboard/feeds/feeds_components/rightNav.jsx";
-// import appwriteService from "@/appwrite/appwriteconfig";
-// import useAuth from "@/context/useAuth";
-import Login from "@/app/login/page";
 
 const Profile = () => {
+  const [makepostActive, setMakepostActive] = useState(false);
+  const handleMakePost = () => {
+    if (makepostActive) {
+      document.querySelector(".mp_bgCont").classList.add("active");
+    } else {
+      document.querySelector(".mp_bgCont").classList.remove("active");
+    }
+  };
 
-
+  useEffect(() => {
+    handleMakePost();
+  });
   return (
-
     <>
-     
-        <div className="pageCont">
-          <div className="leftbar">
-            <LeftNav />
+      <div className="pageCont">
+        <div className="leftbar">
+          <LeftNav />
+        </div>
+        <div className="otherHalf">
+          <div className="top_nav">
+            <TopNav
+              makepostActive={makepostActive}
+              setMakepostActive={setMakepostActive}
+              handleMakePost={handleMakePost}
+            />
           </div>
-          <div className="otherHalf">
-            <div className="top_nav">
-              <TopNav />
+          <div className="bottomHalf">
+            <div className="posts">
+              <PostCard />
             </div>
-            <div className="bottomHalf">
-              <div className="posts">
-                <PostCard />
-              </div>
-              <div className="suggested_connect">
-                <RightNav />
-              </div>
+            <div className="suggested_connect">
+              <RightNav />
             </div>
           </div>
         </div>
-
+      </div>
     </>
-
   );
 };
 

@@ -4,6 +4,7 @@ import "src/app/dashboard/feeds/feeds_components/topNav.css";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import Make_post from "src/app/dashboard/feeds/feeds_components/make_post.jsx";
 
 const ProfileMedia = [
   {
@@ -36,7 +37,7 @@ const ProfileMedia = [
   },
 ];
 
-const TopNav = () => {
+const TopNav = ({ makepostActive, setMakepostActive, handleMakePost }) => {
   const NavItem = ({ text, href, icon, color }) => {
     const [isActive, setIsActive] = useState(false);
 
@@ -68,10 +69,15 @@ const TopNav = () => {
           />
         </div>
         <div className="inputArea">
-          <div className="search_Icon">
-            <Icon icon="ic:round-search" />
-          </div>
-          <input type="search" className="searchInput" />
+          <button
+            className="searchInput"
+            onClick={() => {
+              setMakepostActive(true);
+              handleMakePost();
+            }}
+          >
+            Start a post
+          </button>
         </div>
       </div>
       <div className="lower">
@@ -82,6 +88,13 @@ const TopNav = () => {
             </div>
           );
         })}
+      </div>
+      <div className="mp_bgCont">
+        <Make_post
+          makepostActive={makepostActive}
+          setMakepostActive={setMakepostActive}
+          handleMakePost={handleMakePost}
+        />
       </div>
     </div>
   );

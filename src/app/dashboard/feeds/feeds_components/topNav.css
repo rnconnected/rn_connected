@@ -33,19 +33,11 @@
 }
 
 .inputArea {
-    display: flex;
+    /* display: flex; */
     outline: 2px solid gray;
     width: clamp(20rem, 30vw, 30rem);
     height: 2rem;
     border-radius: .5rem;
-}
-
-.search_Icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    padding: .5rem;
 }
 
 .searchInput {
@@ -55,6 +47,9 @@
     border: none;
     padding: .5rem;
     font-size: 1rem;
+    background-color: transparent;
+    text-align: start;
+    cursor: pointer;
 }
 
 .media_links {
@@ -115,4 +110,19 @@
     .lower {
         width: 100%;
     }
+}
+
+.mp_bgCont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+}
+
+.mp_bgCont.active {
+    display: flex;
 }
