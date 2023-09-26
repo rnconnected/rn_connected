@@ -13,73 +13,40 @@ import {
   Window,
   useChannelStateContext,
 } from "stream-chat-react";
-import { useState, useEffect } from "react";
 
-const Users = () => {
-  const { channel } = useChannelStateContext();
-  const [channelUsers, setChannelUsers] = useState<Array<{ name: string; online: boolean }>>([]);
+const userId = "650f07ea901515c754ed";
+const ChatClient = StreamChat.getInstance(process.env.NEXT_PUBLIC_STREAM_KEY!);
 
-  useEffect(() => {
-    const updateChannelUsers = () => {
-      setChannelUsers(
-        Object.values(channel.state.members).map((user) => ({
-          name: user.user_id!,
-          online: !!user.user!.online,
-        })),
-      );
-    };
+ChatClient.connectUser(
+  {
+    id: "650f07ea901515c754ed",
+    name: "Chima anupkorunku",
+  },
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUwZjA3ZWE5MDE1MTVjNzU0ZWQifQ.SCB58-VbUMiHADtzZPbq4WLcmVVmp5KvsIRyTO4W4qA"
+);
 
-    updateChannelUsers();
-  }, [ channel]);
-
-  return (
-    <ul className='users-list'>
-      {channelUsers.map((member) => (
-        <li key={member.name}>
-          {member.name} - {member.online ? 'online' : 'offline'}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const userId = "ancient-boat-3";
-const userName = "Chimaobim Dike";
-
-const user: User = {
-  id: userId,
-  name: userName,
-};
-
-const apiKey = "bgs3nw84u9em";
-const userToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYW5jaWVudC1ib2F0LTMifQ.x4mZF65eS0eq-O6C0aGFZKTjoa2vjlhtlcbG3c2fCNY";
-
-const chatClient = new StreamChat(apiKey);
-chatClient.connectUser(user, userToken);
-
-const channel = chatClient.channel("messaging", "custom_channel_id", {
-  image: "/RNlogo/logo1.png",
-  name: "Chimaobim Dike",
+const channel = ChatClient.channel("messaging", "chanel_1", {
+  name: "chanel_1",
   members: [userId],
 });
 
-const App = () => (
-  <div className="chat_div">
-    <LeftNav />
-    <Chat client={chatClient} theme="str-chat__theme-dark">
-      
-      <Channel channel={channel}>
-        <Window>
-          <Users />
-          <ChannelHeader />
-          <MessageList />
-          <MessageInput />
-        </Window>
-        <Thread />
-      </Channel>
-    </Chat>
-  </div>
-);
+const Chatpage = () => {
+  return (
+    <div className="chatpageCont">
+      <LeftNav />
+      <div className="chatapi">
+        <Chat client={ChatClient}>
+          <Channel channel={channel}>
+            <Window>
+              <ChannelHeader />
+              <MessageList />
+              <MessageInput />
+            </Window>
+          </Channel>
+        </Chat>
+      </div>
+    </div>
+  );
+};
 
-export default App;
+export default Chatpage;
