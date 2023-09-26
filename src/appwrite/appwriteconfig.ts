@@ -1,6 +1,6 @@
 
 import config from "@/config/config";
-import { Client, Account, ID } from "appwrite";
+import { Client, Account, ID, Databases } from "appwrite";
 import { type } from "os";
 
 type CreateUserAccount = {
@@ -108,3 +108,4 @@ export class AppwriteService {
 const appwriteService = new AppwriteService();
 
 export default appwriteService;
+export const appwriteDatabase = new Databases(appwriteClient);

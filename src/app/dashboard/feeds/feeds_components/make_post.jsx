@@ -1,10 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./make_post.css";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import { createFeeds } from "./postCardData";
+import appwriteService from '@/appwrite/appwriteconfig';
 
 const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
+  const [user, setUser] = useState(null);
+  const [postText, setPostText] = useState(""); // Add state to capture post text
+  const [selectedFile, setSelectedFile] = useState(null); // Add state to capture selected file
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const data = await appwriteService.getCurrentUser();
+        setUser(data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+
+    fetchUser();
+  }, []);
+
+  const handlePost = async () => {
+    try {
+      // Create a feed object with the post text and other necessary data
+      const feedData = {
+        text: postText,
+        // Add other properties as needed, e.g., selectedFile
+      };
+
+      // Call the createFeeds function to send the document to the database
+      const createdFeed = await createFeeds(feedData);
+
+      // Optionally, reset the input fields or close the post modal
+      setPostText("");
+      setSelectedFile(null);
+
+      // Call any additional handling function, if needed
+      handleMakePost();
+    } catch (error) {
+      console.error('Error posting:', error);
+    }
+  };
+  // Rest of your component code remains the same...
+  
   return (
+    user && (
     <>
       <div className="make_postCont">
         <div className="make_post_top">
@@ -19,7 +62,7 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
               />
             </div>
             <div className="mp_username_postType">
-              <div className="mp_username">{"user name"}</div>
+              <div className="mp_username">{user.name}</div>
               <small>Post to everyone</small>
             </div>
           </div>
@@ -35,15 +78,17 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
         </div>
         <div className="mp_body">
           <div className="mp_input">
-            <textarea
+          <textarea
               name=""
               id="makePost"
               cols=""
               rows="2"
               placeholder="What's on your mind?"
+              value={postText} // Bind the textarea value to the state
               onChange={(e) => {
                 e.target.style.height = "auto";
                 e.target.style.height = e.target.scrollHeight + "px";
+                setPostText(e.target.value); // Update the postText state
               }}
             />
             <button className="emojis">
@@ -89,12 +134,16 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
             </div>
           </div>
           <div className="mp_post_btnCont">
-            <div className="mp_btn">Post</div>
+            <div className="mp_btn">
+            <button onClick={handlePost}>Post</button>
+            </div>
           </div>
         </div>
       </div>
     </>
+    )
   );
 };
 
 export default Make_post;
+
