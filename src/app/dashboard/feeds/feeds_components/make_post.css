@@ -141,7 +141,7 @@
 
  .mp_btn {
      background-color: #111858;
-     color: white;
+     
      padding: .5rem;
      width: 4rem;
      text-align: center;
@@ -149,6 +149,14 @@
      cursor: pointer;
  }
 
+ .mp_btn button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+ }
+
  .mp_btn:active {
      transform: scale(.95);
  }
+
