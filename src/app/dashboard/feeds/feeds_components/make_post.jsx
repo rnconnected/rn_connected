@@ -3,12 +3,14 @@ import "./make_post.css";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { createFeeds } from "./postCardData";
-import appwriteService from '@/appwrite/appwriteconfig';
+import appwriteService from "@/appwrite/appwriteconfig";
 
 const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
   const [user, setUser] = useState(null);
   const [postText, setPostText] = useState(""); // Add state to capture post text
-  const [selectedFile, setSelectedFile] = useState(null); // Add state to capture selected file
+
+  // Determine if the "Post" button should be disabled
+  const isButtonDisabled = postText.trim() === "";
 
   useEffect(() => {
     async function fetchUser() {
@@ -36,7 +38,7 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
 
       // Optionally, reset the input fields or close the post modal
       setPostText("");
-      setSelectedFile(null);
+      setMakepostActive(false); // Close the input field
 
       // Call any additional handling function, if needed
       handleMakePost();
@@ -45,102 +47,108 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
     }
   };
   // Rest of your component code remains the same...
-  
+
   return (
     user && (
-    <>
-      <div className="make_postCont">
-        <div className="make_post_top">
-          <div className="mp_userDp_cont">
-            <div className="mp_dp">
-              <Image
-                src="/RNlogo/logo1.png"
-                alt="Your dp"
-                height={500}
-                width={500}
-                className="mp_dpImg"
-              />
+      <>
+        <div className="make_postCont">
+          <div className="make_post_top">
+            <div className="mp_userDp_cont">
+              <div className="mp_dp">
+                <Image
+                  src="/RNlogo/logo1.png"
+                  alt="Your dp"
+                  height={500}
+                  width={500}
+                  className="mp_dpImg"
+                />
+              </div>
+              <div className="mp_username_postType">
+                <div className="mp_username">{user.name}</div>
+                <small>Post to everyone</small>
+              </div>
             </div>
-            <div className="mp_username_postType">
-              <div className="mp_username">{user.name}</div>
-              <small>Post to everyone</small>
-            </div>
-          </div>
-          <div
-            className="mp_cancel"
-            onClick={() => {
-              setMakepostActive(false);
-              handleMakePost();
-            }}
-          >
-            X
-          </div>
-        </div>
-        <div className="mp_body">
-          <div className="mp_input">
-          <textarea
-              name=""
-              id="makePost"
-              cols=""
-              rows="2"
-              placeholder="What's on your mind?"
-              value={postText} // Bind the textarea value to the state
-              onChange={(e) => {
-                e.target.style.height = "auto";
-                e.target.style.height = e.target.scrollHeight + "px";
-                setPostText(e.target.value); // Update the postText state
+            <div
+              className="mp_cancel"
+              onClick={() => {
+                setMakepostActive(false);
+                handleMakePost();
               }}
-            />
-            <button className="emojis">
-              <Icon icon="mdi:smiley-outline" />
-            </button>
-          </div>
-          <div className="mp_icons">
-            <div className="mp_icon">
-              <div class="file-input-label">
-                <span style={{ color: "darkgreen" }}>
-                  <Icon icon="pajamas:media" />
-                </span>
-                <span>Media</span>
-              </div>
-              <input
-                type="file"
-                id="videoInput"
-                name="videoInput"
-                accept="video/,image/ "
-              />
-            </div>
-            <div className="mp_icon">
-              <div class="file-input-label">
-                <span style={{ color: "#111858" }}>
-                  <Icon icon="mdi:events" />
-                </span>
-                <span>Event</span>
-              </div>
-            </div>
-            <div className="mp_icon">
-              <div class="file-input-label">
-                <span style={{ color: "#6B4500" }}>
-                  <Icon icon="ion:document-outline" />
-                </span>
-                <span>Document</span>
-              </div>
-              <input
-                type="file"
-                id="videoInput"
-                name="videoInput"
-                accept="document/*"
-              />
+            >
+              X
             </div>
           </div>
-          <div className="mp_post_btnCont">
-            <div className="mp_btn">
-            <button onClick={handlePost}>Post</button>
+          <div className="mp_body">
+            <div className="mp_input">
+              <textarea
+                name=""
+                id="makePost"
+                cols=""
+                rows="2"
+                placeholder="What's on your mind?"
+                value={postText} // Bind the textarea value to the state
+                onChange={(e) => {
+                  e.target.style.height = "auto";
+                  e.target.style.height = e.target.scrollHeight + "px";
+                  setPostText(e.target.value); // Update the postText state
+                }}
+              />
+              <button className="emojis">
+                <Icon icon="mdi:smiley-outline" />
+              </button>
+            </div>
+            <div className="mp_icons">
+              <div className="mp_icon">
+                <div class="file-input-label">
+                  <span style={{ color: "darkgreen" }}>
+                    <Icon icon="pajamas:media" />
+                  </span>
+                  <span>Media</span>
+                </div>
+                <input
+                  type="file"
+                  id="videoInput"
+                  name="videoInput"
+                  accept="video/,image/ "
+                />
+              </div>
+              <div className="mp_icon">
+                <div class="file-input-label">
+                  <span style={{ color: "#111858" }}>
+                    <Icon icon="mdi:events" />
+                  </span>
+                  <span>Event</span>
+                </div>
+              </div>
+              <div className="mp_icon">
+                <div class="file-input-label">
+                  <span style={{ color: "#6B4500" }}>
+                    <Icon icon="ion:document-outline" />
+                  </span>
+                  <span>Document</span>
+                </div>
+                <input
+                  type="file"
+                  id="videoInput"
+                  name="videoInput"
+                  accept="document/*"
+                />
+              </div>
+            </div>
+            <div className="mp_post_btnCont">
+              <div className="mp_btn">
+              <button
+                  onClick={handlePost}
+                  disabled={isButtonDisabled}
+                  className={isButtonDisabled ? "disabled-button" : ""}
+                >
+                  Post
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </>
     )
   );
 };
