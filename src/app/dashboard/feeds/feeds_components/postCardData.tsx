@@ -2,13 +2,23 @@ import { ID } from "appwrite";
 import { appwriteDatabase, AppwriteService } from "@/appwrite/appwriteconfig";
 
 export const getFeeds = async (): Promise<Feed[]> => {
-    const { documents } = await appwriteDatabase.listDocuments(
+    try {
+      const { documents } = await appwriteDatabase.listDocuments(
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE || '',
         process.env.NEXT_PUBLIC_APPWRITE_COLLECTION || ''
-    );
-    const feeds = documents as unknown as Feed[];
-    return feeds;
-};
+      );
+      const feeds = documents as unknown as Feed[];
+  
+      // Reverse the feeds array to get the highest to lowest order
+      const reversedFeeds = feeds.reverse();
+  
+      return reversedFeeds;
+    } catch (error) {
+      console.error('Error fetching feeds:', error);
+      throw error;
+    }
+  };
+  
 
 export const createFeeds = async (feed: Feed): Promise<Feed> => {
     const createdFeed = (await appwriteDatabase.createDocument(

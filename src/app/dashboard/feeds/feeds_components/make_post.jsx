@@ -107,7 +107,7 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
                 type="file"
                 id="videoInput"
                 name="videoInput"
-                accept="video/*,image/* "
+                accept="video/,image/ "
               />
             </div>
             <div className="mp_icon">
@@ -146,4 +146,3 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
 };
 
 export default Make_post;
-

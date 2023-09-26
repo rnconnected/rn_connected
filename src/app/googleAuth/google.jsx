@@ -11,8 +11,8 @@ const SocialSignin = () => {
     try {
       account.createOAuth2Session(
         "google",
-        "http://localhost:3000/dashboard/feeds",
-        "http://localhost:3000/login",
+        "https://rn-connected.vercel.app/dashboard/feeds",
+        "https://rn-connected.vercel.app/login",
       );
     } catch (e) {
       console.error(`${e.message}`);
