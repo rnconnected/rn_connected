@@ -25,7 +25,11 @@ export const createFeeds = async (feed: Feed): Promise<Feed> => {
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE || '',
         process.env.NEXT_PUBLIC_APPWRITE_COLLECTION || '',
         ID.unique(),
-        feed
+        {
+            text: feed.text,
+            Username: feed.Username,
+            // Useremail: feed.Useremail
+        },
     )) as unknown as Feed;
     return createdFeed;
 };

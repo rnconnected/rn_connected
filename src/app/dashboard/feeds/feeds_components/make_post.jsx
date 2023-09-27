@@ -30,6 +30,7 @@ const Make_post = ({ makepostActive, setMakepostActive, handleMakePost }) => {
       // Create a feed object with the post text and other necessary data
       const feedData = {
         text: postText,
+        Username: user.name, // Add the 'Username' attribute with the user's name
         // Add other properties as needed, e.g., selectedFile
       };
 

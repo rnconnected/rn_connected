@@ -10,6 +10,19 @@ export default function PostFeed() {
   const [likeStates, setLikeStates] = useState({});
   const [feeds, setFeeds] = useState([]); // Initialize as an empty array
 
+  const calculateTimeDifference = (timestamp) => {
+    const currentDate = new Date();
+    const feedDate = new Date(timestamp);
+    const timeDifference = Math.floor((currentDate - feedDate) / (1000 * 60)); // in minutes
+  
+    if (timeDifference < 60) {
+      return `${timeDifference} minutes ago`;
+    } else {
+      const hoursDifference = Math.floor(timeDifference / 60); // in hours
+      return `${hoursDifference} hours ago`;
+    }
+  };
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -56,9 +69,9 @@ export default function PostFeed() {
                   /> */}
                 </div>
                 <div className="posters_infoTxt">
-                  {/* <div className="name">{feed.poster_name}</div> */}
+                  <div className="name">{feed.Username}</div>
                   {/* <div className="position_role">{feed.poster_position}</div> */}
-                  <div className="datePosted"> 2hrs ago</div>
+                  <div className="datePosted">{calculateTimeDifference(feed.$createdAt)}</div>
                 </div>
               </div>
               <div className="menu_btnRight">
