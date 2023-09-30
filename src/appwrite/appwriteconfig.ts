@@ -1,24 +1,23 @@
-
 import config from "@/config/config";
 import { Client, Account, ID, Databases } from "appwrite";
 import { type } from "os";
 
 type CreateUserAccount = {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 };
 
 type Updatephonenumber = {
-    phone: string;
+  phone: string;
 };
 
 type Updatefullname = {
-   fullname: string
-}
+  fullname: string;
+};
 
 type LoginUserAccount = {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 };
 
 const appwriteClient = new Client();
@@ -29,80 +28,85 @@ appwriteClient.setEndpoint(config.appwriteUrl).setProject(config.appwriteKey);
 export const account = new Account(appwriteClient);
 
 export class AppwriteService {
-    async createUserAccount({ email, password }: CreateUserAccount) {
-        try {
-            const userAccount = await account.create(ID.unique(), email, password);
-            if (userAccount) {
-                return this.login({ email, password });
-            } else {
-                return userAccount;
-            }
-        } catch (error) {
-            throw error;
-        }
+  async createUserAccount({ email, password }: CreateUserAccount) {
+    try {
+      const userAccount = await account.create(ID.unique(), email, password);
+      if (userAccount) {
+        return this.login({ email, password });
+      } else {
+        return userAccount;
+      }
+    } catch (error) {
+      throw error;
     }
+  }
 
-    async updatephonenumber({phone}:  Updatephonenumber){
-        try{
-            const promise = account.updatePhone(ID.unique(), phone);
-            promise.then(function (response: any) {
-                console.log(response);
-            }, function (error: any) {
-                console.log(error);
-            });
-        }catch(error){
-            throw error;
+  async updatephonenumber({ phone }: Updatephonenumber) {
+    try {
+      const promise = account.updatePhone(ID.unique(), phone);
+      promise.then(
+        function (response: any) {
+          console.log(response);
+        },
+        function (error: any) {
+          console.log(error);
         }
-    };
-
-
-    async updatefullname({fullname}:  Updatefullname){
-        try{
-            const promise = account.updateName(fullname);
-            promise.then(function (response: any) {
-                console.log(response);
-            }, function (error: any) {
-                console.log(error);
-            });
-        }catch(error){
-            throw error;
-        }
-    };
-    
-
-    async login({ email, password }: LoginUserAccount) {
-        try {
-            return await account.createEmailSession(email, password);
-        } catch (error) {
-            throw error;
-        }
+      );
+    } catch (error) {
+      throw error;
     }
+  }
 
-    async IsLoggedIn(): Promise<boolean> {
-        try {
-            const data = await this.getCurrentUser();
-            return Boolean(data);
-        } catch (error) {
-            return false;
+  async updatefullname({ fullname }: Updatefullname) {
+    try {
+      const promise = account.updateName(fullname);
+      promise.then(
+        function (response: any) {
+          console.log(response);
+        },
+        function (error: any) {
+          console.log(error);
         }
+      );
+    } catch (error) {
+      throw error;
     }
+  }
 
-    async getCurrentUser() {
-        try {
-            return account.get();
-        } catch (error) {
-            console.log("getCurrentUser error: ", error);
-            return null;
-        }
+  async login({ email, password }: LoginUserAccount) {
+    try {
+      return await account.createEmailSession(email, password);
+    } catch (error) {
+      throw error;
     }
+  }
 
-    async logout() {
-        try {
-            return await account.deleteSession("current");
-        } catch (error) {
-            console.log("logout error" + error);
-        }
-    }    
+  async IsLoggedIn(): Promise<boolean> {
+    try {
+      const data = await this.getCurrentUser();
+      return Boolean(data);
+    } catch (error) {
+      return false;
+    }
+  }
+
+  async getCurrentUser() {
+    try {
+      const userData = await account.get();
+      return userData;
+    } catch (error) {
+      console.error("getCurrentUser error: ", error);
+      return null;
+    }
+  }
+
+  async logout() {
+    try {
+      return await account.deleteSession("current");
+    } catch (error) {
+      console.log("logout error" + error);
+    }
+  }
 }
 
 const appwriteService = new AppwriteService();

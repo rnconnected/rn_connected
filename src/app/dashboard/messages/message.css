@@ -319,3 +319,16 @@ textarea::-webkit-scrollbar {
     align-items: flex-start;
     border: none;
 }
+
+
+
+/* not part of the main design */
+
+.chatpageCont {
+    display: flex;
+}
+
+.chatapi {
+    border: 2px solid blue;
+    width: 100%;
+}
