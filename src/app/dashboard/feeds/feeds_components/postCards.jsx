@@ -1,41 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { getFeeds } from "./postCardData";
-// import Reac, { useEffect, useState } from "react";
 import Image from "next/image";
-import "src/app/dashboard/feeds/feeds_components/postCards.css";
 import { Icon } from "@iconify/react";
-// import post_Card from "./postCards.json";
+import "src/app/dashboard/feeds/feeds_components/postCards.css";
 
 export default function PostFeed() {
   const [likeStates, setLikeStates] = useState({});
-  const [feeds, setFeeds] = useState([]); // Initialize as an empty array
+  const [feeds, setFeeds] = useState([]);
 
   const calculateTimeDifference = (timestamp) => {
     const currentDate = new Date();
     const feedDate = new Date(timestamp);
-    const timeDifference = Math.floor((currentDate - feedDate) / (1000 * 60)); // in minutes
-  
+    const timeDifference = Math.floor((currentDate - feedDate) / (1000 * 60));
+
     if (timeDifference < 60) {
       return `${timeDifference} minutes ago`;
     } else {
-      const hoursDifference = Math.floor(timeDifference / 60); // in hours
+      const hoursDifference = Math.floor(timeDifference / 60);
       return `${hoursDifference} hours ago`;
     }
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await getFeeds();
-        console.log(data); // Check the data type and structure
-        setFeeds(data); // Set the array of feed items
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+  const fetchData = async () => {
+    try {
+      const data = await getFeeds();
+      console.log(data);
+      setFeeds(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-    fetchData();
-  }, []);
+  };
 
+  useEffect(() => {
+    fetchData(); // Initial data fetch when the component mounts
+
+    const intervalId = setInterval(() => {
+      fetchData(); // Fetch data every 5 seconds (adjust the interval as needed)
+    }, 5000);
+
+    // Clear the interval when the component unmounts
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once on mount
 
   const handleLikeClick = (postId) => {
     setLikeStates((prevLikeStates) => ({
