@@ -12,15 +12,19 @@ export default function PostFeed() {
     const currentDate = new Date();
     const feedDate = new Date(timestamp);
     const timeDifference = Math.floor((currentDate - feedDate) / (1000 * 60));
-
-    if (timeDifference < 60) {
+  
+    if (timeDifference < 1) {
+      return 'Now';
+    } else if (timeDifference < 60) {
       return `${timeDifference} minutes ago`;
-    } else {
+    } else if (timeDifference < 1440) { // 1440 minutes in a day
       const hoursDifference = Math.floor(timeDifference / 60);
-      return `${hoursDifference} hours ago`;
+      return `${hoursDifference} hour${hoursDifference > 1 ? 's' : ''} ago`;
+    } else {
+      const daysDifference = Math.floor(timeDifference / 1440);
+      return `${daysDifference} day${daysDifference > 1 ? 's' : ''} ago`;
     }
-  };
-
+  };[]
   const fetchData = async () => {
     try {
       const data = await getFeeds();
