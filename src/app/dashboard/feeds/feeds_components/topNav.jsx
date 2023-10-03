@@ -5,25 +5,19 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Make_post from "src/app/dashboard/feeds/feeds_components/make_post.jsx";
+import User_dp from "../../components/user_dp";
 
 const ProfileMedia = [
   {
     id: 1,
-    text: "Photo",
+    text: "Media",
     icon: <Icon icon="heroicons:photo" />,
     href: "/photo",
     color: "green",
   },
   {
-    id: 2,
-    text: "Video",
-    icon: <Icon icon="tabler:video" />,
-    href: "/video",
-    color: "orange",
-  },
-  {
     id: 3,
-    text: "Articles",
+    text: "Document",
     icon: <Icon icon="bx:file" />,
     href: "/Articles",
     color: "purple",
@@ -57,18 +51,12 @@ const TopNav = ({ makepostActive, setMakepostActive, handleMakePost }) => {
   };
 
   return (
-    <div className="topnavCont">
+    <div className="postArea">
       <div className="upper">
-        <div className="dp">
-          <Image
-            src="/RNlogo/logo1.png"
-            alt=""
-            width={500}
-            height={500}
-            className="dpImg"
-          />
+        <div className="dp_cont">
+          <User_dp />
         </div>
-        <div className="inputArea">
+        <div className="postBtn_cont">
           <button
             className="searchInput"
             onClick={() => {

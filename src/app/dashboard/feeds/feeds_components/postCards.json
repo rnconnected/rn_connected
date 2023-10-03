@@ -1,18 +1,57 @@
 [
   {
-    "id":1,
+    "id": 1,
     "poster_dp": "/RNlogo/logo1.png",
-   "poster_name": "William Uchemba",
+    "poster_name": "William Uchemba",
     "poster_position": "Nurse Educator | paediatric Nurse",
     "connection_status": "Connected",
-    "posters_txt":
-      "This is the RN Connected platform for Nurses to connect. Be warned 😎😷😷😷",
+    "posters_txt": "This is the RN Connected platform for Nurses to connect. Be warned 😎😷😷😷",
     "posted_img": ["/RNlogo/logo1.png"],
     "likes_num": 200,
     "comments": [
       {
         "commentor": "Green Lacorseby",
         "comment": "hello everyone  I'm Awesome",
+        "commentor_img": "/RNlogo/logo1.png",
+        "comment_likes": 0,
+        "replies": [
+          {
+            "replier": "Green Lacorseby",
+            "reply": "hello everyone  I'm Awesome",
+            "reply_likes": 1
+          }
+        ]
+      },
+      {
+        "commentor": "Green Lacorseby",
+        "comment": "hello everyone  I'm Awesome",
+        "commentor_img": "/RNlogo/logo1.png",
+        "comment_likes": 1000,
+        "replies": [
+          {
+            "replier": "Green Lacorseby",
+            "reply": "hello everyone  I'm Awesome",
+            "reply_likes": 10
+          }
+        ]
+      },
+      {
+        "commentor": "Green Lacorseby",
+        "comment": "hello everyone  I'm Awesome",
+        "commentor_img": "/RNlogo/logo1.png",
+        "comment_likes": 10,
+        "replies": [
+          {
+            "replier": "Green Lacorseby",
+            "reply": "hello everyone  I'm Awesome",
+            "reply_likes": 10
+          }
+        ]
+      },
+      {
+        "commentor": "Green Lacorseby",
+        "comment": "hello everyone  I'm Awesome",
+        "commentor_img": "/RNlogo/logo1.png",
         "comment_likes": 10,
         "replies": [
           {
@@ -26,19 +65,19 @@
     "repost_num": 4
   },
   {
-    "id":2,
+    "id": 2,
     "poster_dp": "/RNlogo/logo1.png",
-   " poster_name": "William Uchemba",
+    " poster_name": "William Uchemba",
     "poster_position": "Nurse Educator | paediatric Nurse",
     "connection_status": "Connected",
-    "posters_txt":
-      "This is the RN Connected platform for Nurses to connect. Be warned 😎😷😷😷",
-    "posted_img": ["/RNlogo/logo1.png","/RNlogo/logo1.png"],
+    "posters_txt": "This is the RN Connected platform for Nurses to connect. Be warned 😎😷😷😷",
+    "posted_img": ["/RNlogo/logo1.png", "/RNlogo/logo1.png"],
     "likes_num": 200,
     "comments": [
       {
         "commentor": "Green Lacorseby",
         "comment": "hello everyone  I'm Awesome",
+        "commentor_img": "/RNlogo/logo1.png",
         "comment_likes": 10,
         "replies": [
           {
@@ -52,14 +91,17 @@
     "repost_num": 4
   },
   {
-    "id":3,
+    "id": 3,
     "poster_dp": "/RNlogo/logo1.png",
-   " poster_name": "William Uchemba",
+    " poster_name": "William Uchemba",
     "poster_position": "Nurse Educator | paediatric Nurse",
     "connection_status": "Connected",
-    "posters_txt":
-      "This is the RN Connected platform for Nurses to connect. Be warned 😎😷😷😷",
-    "posted_img": ["/RNlogo/logo1.png","/RNlogo/logo1.png","/RNlogo/logo1.png"],
+    "posters_txt": "This is the RN Connected platform for Nurses to connect. Be warned 😎😷😷😷",
+    "posted_img": [
+      "/RNlogo/logo1.png",
+      "/RNlogo/logo1.png",
+      "/RNlogo/logo1.png"
+    ],
     "likes_num": 200,
     "comments": [
       {
@@ -70,6 +112,7 @@
           {
             "replier": "Green Lacorseby",
             "reply": "hello everyone  I'm Awesome",
+            "commentor_img": "/RNlogo/logo1.png",
             "reply_likes": 10
           }
         ]

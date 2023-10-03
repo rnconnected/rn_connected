@@ -1,11 +1,11 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import "src/app/dashboard/feeds/feeds.css";
 import LeftNav from "src/app/dashboard/components/leftNav";
 import TopNav from "src/app/dashboard/feeds/feeds_components/topNav.jsx";
 import PostCard from "src/app/dashboard/feeds/feeds_components/postCards.jsx";
 import RightNav from "src/app/dashboard/feeds/feeds_components/rightNav.jsx";
+import Search_feeds from "./feeds_components/search_head";
 
 const Profile = () => {
   const [makepostActive, setMakepostActive] = useState(false);
@@ -28,14 +28,15 @@ const Profile = () => {
         </div>
         <div className="otherHalf">
           <div className="top_nav">
-            <TopNav
-              makepostActive={makepostActive}
-              setMakepostActive={setMakepostActive}
-              handleMakePost={handleMakePost}
-            />
+            <Search_feeds />
           </div>
           <div className="bottomHalf">
             <div className="posts">
+              <TopNav
+                makepostActive={makepostActive}
+                setMakepostActive={setMakepostActive}
+                handleMakePost={handleMakePost}
+              />
               <PostCard />
             </div>
             <div className="suggested_connect">

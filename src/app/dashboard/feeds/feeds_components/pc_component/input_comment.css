@@ -1,0 +1,42 @@
+.dunno {
+    font-size: clamp(.9rem, 1.5vw, 1.1rem);
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: space-between;
+    padding: .5rem .5rem 0 .5rem;
+    border-radius: .5rem;
+    border: 1px solid black;
+    gap: .3rem;
+}
+
+.comment_input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    resize: none;
+    overflow: hidden;
+    font-size: 1rem;
+}
+
+.plane {
+    display: inline;
+    cursor: pointer;
+}
+
+.comment_bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.emojiApi {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+#upload {
+    display: none;
+}

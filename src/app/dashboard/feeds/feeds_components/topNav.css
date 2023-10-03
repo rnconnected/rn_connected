@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 1.5rem;
     width: 100%;
     box-shadow: 2px 2px 5px lightgray;
     background-color: white;
@@ -11,33 +11,37 @@
 
 .upper {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
 }
 
-.dp {
+.dp_cont {
     width: clamp(3rem, 5vw, 3.5rem);
     height: clamp(3rem, 5vw, 3.5rem);
-    outline: 1px solid gray;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    box-shadow: inset 1px 1px 5px 1px lightgray;
 }
 
-.dpImg {
-    width: clamp(3.5rem, 5vw, 4rem);
-    height: auto;
+.postBtn_cont {
+    outline: 2px solid gray;
+    width: 85%;
+    height: 2rem;
+    border-radius: .5rem;
 }
+
 
 .inputArea {
-    /* display: flex; */
+    display: flex;
     outline: 2px solid gray;
     width: clamp(20rem, 30vw, 30rem);
     height: 2rem;
     border-radius: .5rem;
+}
+
+.search_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: .3rem;
+    font-size: larger;
 }
 
 .searchInput {
@@ -49,7 +53,6 @@
     font-size: 1rem;
     background-color: transparent;
     text-align: start;
-    cursor: pointer;
 }
 
 .media_links {
@@ -70,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 90%;
+    width: 100%;
     padding: 1rem 0 0 0;
 }
 
@@ -125,4 +128,20 @@
 
 .mp_bgCont.active {
     display: flex;
+}
+
+
+/* this is the section for the make post section card*/
+.postArea {
+    background-color: white;
+    box-shadow: 2px 2px 5px lightgray;
+    width: clamp(25rem, 45vw, 50rem);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+@media only screen and (max-width: 51rem) {
+    .postArea {
+        width: 100%;
+    }
 }
