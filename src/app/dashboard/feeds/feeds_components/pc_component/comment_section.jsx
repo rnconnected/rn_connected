@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import "./comment_section.css";
 
-const Comment_section = ({ feed }) => {
+const Comment_section = ({ feed, commentActive }) => {
   return (
-    <div className="comment_section">
+    <div className={`comment_section ${commentActive ? "active" : ""}`}>
       <div className="main_commentCo">
         {feed.comments.map((comment, index) => {
           return (

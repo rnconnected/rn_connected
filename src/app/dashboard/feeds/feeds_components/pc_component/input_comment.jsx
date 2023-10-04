@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import "./input_comment.css";
 
-const Comment_input = (feed) => {
+const Comment_input = ({ feed }) => {
   return (
     <>
       <div className="post_comment">
@@ -30,19 +30,13 @@ const Comment_input = (feed) => {
           ></textarea>
           <div className="comment_bottom">
             <div className="emojiApi">
-              <div className="emoji">
+              <span className="emoji">
                 <Icon icon="la:smile" className="Ricon" />
-              </div>
-              <div className="uploadimg">
-                <label htmlFor="upload">
-                  <Icon icon="carbon:image" className="Ricon" />
-                </label>
-                <input type="file" accept="image/*" id="upload" />
-              </div>
+              </span>
+              <span>
+                <Icon icon="fluent:send-32-regular" className="Ricon" />
+              </span>
             </div>
-            <span>
-              <Icon icon="fluent:send-32-regular" className="Ricon" />
-            </span>
           </div>
         </div>
       </div>

@@ -1,6 +1,11 @@
 .comment_section {
     width: 100%;
     padding: .5rem;
+    display: none;
+}
+
+.comment_section.active {
+    display: block;
 }
 
 .main_commentCo {
