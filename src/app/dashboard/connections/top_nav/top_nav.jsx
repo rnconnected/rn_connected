@@ -1,18 +1,36 @@
 import React, { useState } from 'react';
-import './top_nav.css'; // Import your CSS file for styling
+import './top_nav.css';
+import UserInviteContainer from '../new_invite/newInvite';
+import ConnectionContainer from '../viewConnections/viewConnect';
 
-const NavBar = () => {
+function MainComponent() {
+  const [activeTab, setActiveTab] = useState('newInvite');
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
   return (
-    <nav className="navbar">
-      <div className="nav-links">
-        <ul>
-          <li><a href="#">New Invites</a></li>
-          <li><a href="#">View Connections</a></li>
-        </ul>
+    <div>
+      <div className="navbar">
+        <div
+          className={`nav-item ${activeTab === 'newInvite' ? 'active' : ''}`}
+          onClick={() => handleTabClick('newInvite')}
+        >
+          New Invite
+        </div>
+        <div
+          className={`nav-item ${activeTab === 'connection' ? 'active' : ''}`}
+          onClick={() => handleTabClick('connection')}
+        >
+          Connection
+        </div>
       </div>
-    </nav>
-  );
-};
 
-export default NavBar;
+      {activeTab === 'newInvite' ? <UserInviteContainer /> : null}
+      {activeTab === 'connection' ? <ConnectionContainer /> : null}
+    </div>
+  );
+}
+
+export default MainComponent;

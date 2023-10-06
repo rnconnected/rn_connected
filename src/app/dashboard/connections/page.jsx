@@ -3,7 +3,8 @@
 import "src/app/dashboard/connections/connections.css"
 import LeftNav from "src/app/dashboard/components/leftNav";
 import NavBar from "../connections/top_nav/top_nav";
-import UserInviteContainer from "../connections/connection_card/connection_card";
+// import UserInviteContainer from "./new_invite/newInvite";
+import MainComponent from "./top_nav/top_nav";
 
 const connection = () => {
     return (
@@ -15,12 +16,6 @@ const connection = () => {
                 <div className="otherHalf">
                     <div className="top_nav">
                         <NavBar />
-                    </div>
-                    <div className="bottomHalf">
-                        <div className="posts">
-                            <UserInviteContainer />
-                        </div>
-
                     </div>
                 </div>
             </div>
