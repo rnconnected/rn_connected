@@ -1,6 +1,7 @@
 .navbar {
-  position: fixed;
-  width: 87%;
+  position: sticky;
+  top: 0;
+  /* width: 87%; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
