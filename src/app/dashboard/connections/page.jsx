@@ -9,12 +9,12 @@ import MainComponent from "./top_nav/top_nav";
 const connection = () => {
     return (
         <>
-            <div className="pageCont">
-                <div className="leftbar">
+            <div className="connectionPage">
+                <div className="connectleftbar">
                     <LeftNav />
                 </div>
-                <div className="otherHalf">
-                    <div className="top_nav">
+                <div className="connectDetials">
+                    <div className="connectTop_nav">
                         <NavBar />
                     </div>
                 </div>
