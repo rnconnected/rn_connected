@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 2px solid red;
-}
+} */
 
 .headIntro {
     height: clamp(17rem, 45vw, 45rem);

@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import "./comment_section.css";
 
 const Comment_section = ({ feed, commentActive }) => {
+  const commentLikesNo = feed.comment_likes;
+  // useEffect((e) => {
+  //   if (commentLikesNo > 1) {
+  //     e.style.display = "none";
+  //   }else if(commentLikesNo)
+  // });
+
   return (
     <div className={`comment_section ${commentActive ? "active" : ""}`}>
       <div className="main_commentCo">
@@ -27,7 +34,7 @@ const Comment_section = ({ feed, commentActive }) => {
                     <span>
                       <Icon icon="fluent:heart-32-filled" className="heart" />
                     </span>
-                    <span>{comment.comment_likes}</span>
+                    {/* {return  comment.comment_likes > 0 ? (<span>{comment.comment_likes}</span>) : null} */}
                   </small>
                 </div>
                 <div className="eachComment_reaction">
