@@ -1,0 +1,68 @@
+/* CourseCard.css */
+
+/* Styles for the course card container */
+.course-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.course-list{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for the course image */
+.course-image img {
+  width: 150px; /* Adjust the image size as needed */
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+/* Styles for the course details */
+.course-details {
+  flex-grow: 1;
+}
+
+.course-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.published-date,
+.runtime {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Divider line */
+.divider {
+  border-left: 1px solid #ddd;
+  height: 100px; /* Adjust the height to match the card's content */
+  margin: 0 20px;
+}
+
+/* Styles for the process button */
+.process-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.process-button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional styles can be added based on your design preferences */

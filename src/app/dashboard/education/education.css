@@ -1,0 +1,17 @@
+.EduMainPage{
+    display: flex;
+}
+
+
+.EducationPage{
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+.EduSearchInput{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+

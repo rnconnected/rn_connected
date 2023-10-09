@@ -1,0 +1,30 @@
+.App {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  
+  .search-bar {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.393);
+    padding: 10px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+ }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  
