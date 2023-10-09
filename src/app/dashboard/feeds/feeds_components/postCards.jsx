@@ -8,10 +8,12 @@ import Commentbtn from "@/app/dashboard/feeds/feeds_components/pc_component/comm
 import Sharebtn from "@/app/dashboard/feeds/feeds_components/pc_component/pc_sharebtn";
 import Comment_section from "./pc_component/comment_section";
 import Comment_input from "./pc_component/input_comment";
+import Menulist from "@/app/dashboard/feeds/feeds_components/pc_component/menulist";
 
 export default function PostFeed() {
   const [likeStates, setLikeStates] = useState({});
   const [feeds, setFeeds] = useState([]);
+  const [postMenuActive, setPostMenuActive] = useState(false);
 
   const calculateTimeDifference = (timestamp) => {
     const currentDate = new Date();
@@ -55,13 +57,19 @@ export default function PostFeed() {
         const isLiked = likeStates[postId] || false;
         return (
           <div
-            className={`activePost_overlay ${commentActive ? "active" : ""}`}
+            className={`activePost_overlay ${
+              commentActive === postId ? "active" : ""
+            }`}
             key={index}
           >
-            <div className={`postCard_cont ${commentActive ? "active" : ""}`}>
+            <div
+              className={`postCard_cont ${
+                commentActive === postId ? "active" : ""
+              }`}
+            >
               <div
                 className={`postCard_activeHeader ${
-                  commentActive ? "active" : ""
+                  commentActive === postId ? "active" : ""
                 }`}
               >
                 <div className="posters_name_header">
@@ -69,13 +77,21 @@ export default function PostFeed() {
                 </div>
                 <span
                   className="close_active_PostBtn"
-                  onClick={() => setCommentActive(false)}
+                  onClick={() => setCommentActive(null)}
                 >
                   X
                 </span>
               </div>
-              <div className={`scrollable ${commentActive ? "active" : ""}`}>
-                <div className={`post_Card ${commentActive ? "active" : ""}`}>
+              <div
+                className={`scrollable ${
+                  commentActive === postId ? "active" : ""
+                }`}
+              >
+                <div
+                  className={`post_Card ${
+                    commentActive === postId ? "active" : ""
+                  }`}
+                >
                   <div className="posters_Header">
                     <div className="posters_data">
                       <div className="posters_img_Cont">
@@ -98,8 +114,16 @@ export default function PostFeed() {
                       </div>
                     </div>
                     <div className="menu_btnRight">
-                      <div className="menuBtn">
-                        <Icon icon="ci:hamburger-md" />
+                      <div className="menuSection">
+                        <daiv
+                          className="menuBtn"
+                          onClick={() =>
+                            setPostMenuActive()
+                          }
+                        >
+                          <Icon icon="ci:hamburger-md" />
+                        </daiv>
+                        <Menulist postMenuActive={postMenuActive} />
                       </div>
                       <div className="friend_Status">
                         {feed.connection_status}
@@ -138,7 +162,10 @@ export default function PostFeed() {
                       </div>
                     </div>
                     <div className="react_Left">
-                      <div className="comment_no">
+                      <div
+                        className="comment_no"
+                        onClick={() => setCommentActive(postId)}
+                      >
                         {feed.comments.length} comments
                       </div>
                       <Icon icon="mdi:dot" />
@@ -160,15 +187,26 @@ export default function PostFeed() {
                       )}
                       <span>Like</span>
                     </div>
-                    <Commentbtn setCommentActive={setCommentActive} postId={postId} />
+                    <Commentbtn
+                      postId={postId}
+                      setCommentActive={setCommentActive}
+                      commentActive={commentActive}
+                    />
                     <Sharebtn />
                   </div>
                   {/* this is the comment section */}
-                  <Comment_section feed={feed} commentActive={commentActive} />
+                  <Comment_section
+                    feed={feed}
+                    commentActive={commentActive === postId}
+                  />
                   {/* this is the end of the comment section */}
                 </div>
               </div>
-              <div className={`commentInput  ${commentActive ? "active" : ""}`}>
+              <div
+                className={`commentInput  ${
+                  commentActive === postId ? "active" : ""
+                }`}
+              >
                 <Comment_input feed={feed} />
               </div>
             </div>

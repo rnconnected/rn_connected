@@ -1,0 +1,26 @@
+.menulist {
+    box-shadow: 2px 2px 5px lightgrey;
+    border-radius: .3rem;
+    position: absolute;
+    bottom: -12.5rem;
+    width: max-content;
+    background-color: white;
+    display: none;
+}
+
+.menulist.active {
+    display: block;
+}
+
+.menulist div {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.menulist div:hover {
+    background-color: lightgrey;
+
+}
