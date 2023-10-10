@@ -1,4 +1,11 @@
 /* CourseCard.css */
+.suggested_course {
+  padding: 20px;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px
+}
 
 /* Styles for the course card container */
 .course-card {
@@ -13,14 +20,15 @@
   background-color: #fff;
 }
 
-.course-list{
+.course-list {
   display: flex;
   flex-direction: column;
 }
 
 /* Styles for the course image */
 .course-image img {
-  width: 150px; /* Adjust the image size as needed */
+  width: 150px;
+  /* Adjust the image size as needed */
   height: 150px;
   border-radius: 8px;
   object-fit: cover;
@@ -46,7 +54,8 @@
 /* Divider line */
 .divider {
   border-left: 1px solid #ddd;
-  height: 100px; /* Adjust the height to match the card's content */
+  height: 100px;
+  /* Adjust the height to match the card's content */
   margin: 0 20px;
 }
 

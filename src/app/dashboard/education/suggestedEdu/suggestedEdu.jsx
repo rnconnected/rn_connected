@@ -21,27 +21,36 @@ const SuggestedEdu = ({ imageUrl, title, publishedDate, runtime }) => {
 function SuggestedCourses() {
   const courses = [
     {
-      title: 'Course 1',
+      title: 'Benefits Of Breastfeeding',
       imageUrl: 'https://via.placeholder.com/150', // Replace with actual image URL
-      publishedDate: '2023-10-06',
+      publishedDate: 'Feb 13 2023 (Nursing CE)',
       runtime: '3 hours',
     },
     {
-      title: 'Course 2',
+      title: 'The Nutrition-Focused Physical Exam',
       imageUrl: 'https://via.placeholder.com/150', // Replace with actual image URL
-      publishedDate: '2023-10-07',
+      publishedDate: 'Jul 25 2022 (Nursing world)',
       runtime: '2.5 hours',
     },
     {
-      title: 'Course 3',
+      title: '(CME) Diabetes and Nutrition',
       imageUrl: 'https://via.placeholder.com/150', // Replace with actual image URL
-      publishedDate: '2023-10-08',
+      publishedDate: 'Jul 25 2023 (Nursingtimesjob)',
+      runtime: '4 hours',
+    },
+    {
+      title: 'The Nutrition-Focused Physical Exam',
+      imageUrl: 'https://via.placeholder.com/150', // Replace with actual image URL
+      publishedDate: '2 weeks workshop by Nursing world',
       runtime: '4 hours',
     },
   ];
 
   return (
     <div className="course-list">
+      <div className='suggested_course'>
+        <p>Suggested Courses</p>
+      </div>
       {courses.map((course, index) => (
         <SuggestedEdu
           key={index}

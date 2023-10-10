@@ -69,7 +69,7 @@ const Chatpage = () => {
             </Window>
           </Channel>
         </Chat>
-        <Video />
+        {/* <Video />  */}
       </div>
     </div>
   );
