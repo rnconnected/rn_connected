@@ -9,7 +9,7 @@ export default function useInitializedChatClient() {
   useEffect(() => {
     const initializeChat = async () => {
       try {
-        const user = await appwriteService.getCurrentUser();
+         const user = await appwriteService.getCurrentUser();
 
         if (!user?.$id) return;
 

@@ -6,7 +6,7 @@
     align-items: flex-start;
     gap: .5rem;
     padding: 1rem;
-    width: clamp(18rem, 30vw, 25rem);
+    width: 47%;
     box-shadow: 2px 2px 5px lightgray;
 }
 
