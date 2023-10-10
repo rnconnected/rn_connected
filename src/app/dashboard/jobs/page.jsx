@@ -10,18 +10,22 @@ import jobInfo from "@/app/find/findJob.json";
 
 const jobNav = [
   {
+    href: "/dashboard/jobs",
     icon: <Icon icon="solar:suitcase-tag-line-duotone" />,
     text: "Available Jobs",
   },
   {
+    href: "/dashboard/jobs/another",
     icon: <Icon icon="icon-park-outline:tag" />,
     text: "My Jobs",
   },
   {
+    href: "/dashboard/jobs/another",
     icon: <Icon icon="akar-icons:bell" />,
     text: "Jobs alert",
   },
   {
+    href: "/dashboard/jobs/another",
     icon: <Icon icon="ph:gear-bold" />,
     text: "Application Settings",
   },

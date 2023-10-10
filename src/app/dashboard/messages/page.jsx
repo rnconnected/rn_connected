@@ -55,7 +55,7 @@ const Chatpage = () => {
             filters={{
               type: "messaging",
               members: {
-                $in: [user?.$id] ,
+                $in: [user?.$id],
               },
             }}
             sort={{ last_message_at: -1 }}
