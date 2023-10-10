@@ -93,6 +93,7 @@ export class AppwriteService {
   async getCurrentUser() {
     try {
       const userData = await account.get();
+      console.log("current user is " + userData);
       return userData;
     } catch (error) {
       console.error("getCurrentUser error: ", error);

@@ -21,7 +21,7 @@ export default function useInitializedChatClient() {
             name: user.name,
           },
           async () => {
-            const response = await fetch("/api/get-token");
+            const response = await fetch("/api/get-token?userid=" + user.$id,);
             if (!response.ok) {
               throw Error("failed to get token");
             }

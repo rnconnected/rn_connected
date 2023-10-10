@@ -1,16 +1,21 @@
 import appwriteService from "@/appwrite/appwriteconfig";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { StreamChat } from "stream-chat";
 import { env } from "@/env";
-export async function GET() {
+// import { useRouter } from "next/router";
+export async function GET(request: NextRequest) {
+  const userid = request.nextUrl.searchParams.get('userid')
   try {
     const user = await appwriteService.getCurrentUser();
     console.log("calling user token: ", user?.$id);
+    // const router = useRouter()
+    console.log(userid);
 
-    if (!user) {
+    if (!userid) {
       return NextResponse.json(
-        { error: "user not authenticated" },
+        { error: "user not authenticated" + userid},
         { status: 401 }
+
       );
     }
 
@@ -22,7 +27,7 @@ export async function GET() {
     const expirationTime = Math.floor(Date.now() / 1000) + 60 * 60;
     const issuedAt = Math.floor(Date.now() / 1000) - 60;
 
-    const token = streamClient.createToken(user.$id, expirationTime, issuedAt);
+    const token = streamClient.createToken(userid, expirationTime, issuedAt);
     return NextResponse.json({ token }, { status: 200 });
   } catch (error) {
     console.error(error);
