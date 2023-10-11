@@ -41,3 +41,8 @@ overflow: auto;
 .str-chat__thread {
     width: 45%;
 }
+
+
+.str-chat__channel-search.str-chat__channel-search--with-results.str-chat__channel-search--inline{
+    height: fit-content;
+}
