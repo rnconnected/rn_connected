@@ -39,12 +39,7 @@ const Chatpage = () => {
   console.log(user);
 
   if (!ChatClient || !user) {
-    return (
-      <div>
-        
-        <LoadingIndicator size={100} />
-      </div>
-    );
+    return null;
   }
   return (
     
@@ -62,6 +57,19 @@ const Chatpage = () => {
             }}
             sort={{ last_message_at: -1 }}
             options={{ state: true, presence: true, limit: 10 }}
+            showChannelSearch
+            additionalChannelSearchProps={{
+              searchForChannels: true,
+              searchQueryParams: {
+                channelFilters: {
+                  filters: {
+                    members: {
+                      $in: [user?.$id],
+                    },
+                  }
+                }
+              }
+            }}
           />
           <Channel>
             <Window>
