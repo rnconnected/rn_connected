@@ -41,15 +41,18 @@ const Chatpage = () => {
   if (!ChatClient || !user) {
     return (
       <div>
-        {/* <LeftNav /> */}
+        
         <LoadingIndicator size={100} />
       </div>
     );
   }
   return (
+    
     <div className="chatpageCont">
+      <LeftNav />
       <div className="chatapi">
         <Chat client={ChatClient}>
+          <div className="messagerow">
           <ChannelList
             filters={{
               type: "messaging",
@@ -67,6 +70,7 @@ const Chatpage = () => {
               <MessageInput />
             </Window>
           </Channel>
+          </div>
         </Chat>
       </div>
     </div>
