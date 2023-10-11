@@ -1,0 +1,18 @@
+{
+    "uid": "1",
+    "appId": "6a5d229eff5241d6839d8774c5112cf4",
+    "channelName": "Main",
+    "token": "",
+    "proxyUrl": "http://localhost:3000/dashboard/agora",
+    "serverUrl": "",
+    "tokenExpiryTime": "600",
+    "encryptionMode": 1,
+    "salt": "",
+    "cipherKey": "",
+    "presenceTimeout": 300,
+    "logUpload": false,
+    "logLevel": "debug",
+    "cloudProxy": true,
+    "useStringUserId": false,
+    "rtcToken": ""
+}

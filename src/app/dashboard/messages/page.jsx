@@ -9,7 +9,6 @@ import appwriteService from "@/appwrite/appwriteconfig";
 import React, { useEffect, useState } from "react";
 import {
   Chat,
-  Video,
   Channel,
   ChannelHeader,
   MessageInput,
@@ -69,7 +68,6 @@ const Chatpage = () => {
             </Window>
           </Channel>
         </Chat>
-        {/* <Video />  */}
       </div>
     </div>
   );

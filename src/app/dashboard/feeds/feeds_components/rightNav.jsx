@@ -82,6 +82,7 @@ const RightNav = () => {
               {/* <Image src={"/RNlogo/logo1.png"} height={50} width={50} alt="hey" /> */}
               <div className="intro_dpImg">{user.profile}</div>
             </div>
+            
             <div className="intro_name">{user.name}</div>
             <div className="intro_title">{user.email}</div>
           </div>
