@@ -39,45 +39,45 @@ const Chatpage = () => {
   console.log(user);
 
   if (!ChatClient || !user) {
-    return null;
+    return <LeftNav />;
   }
   return (
-    
+
     <div className="chatpageCont">
       <LeftNav />
       <div className="chatapi">
         <Chat client={ChatClient}>
           <div className="messagerow">
-          <ChannelList
-            filters={{
-              type: "messaging",
-              members: {
-                $in: [user?.$id],
-              },
-            }}
-            sort={{ last_message_at: -1 }}
-            options={{ state: true, presence: true, limit: 10 }}
-            showChannelSearch
-            additionalChannelSearchProps={{
-              searchForChannels: true,
-              searchQueryParams: {
-                channelFilters: {
-                  filters: {
-                    members: {
-                      $in: [user?.$id],
-                    },
+            <ChannelList
+              filters={{
+                type: "messaging",
+                members: {
+                  $in: [user?.$id],
+                },
+              }}
+              sort={{ last_message_at: -1 }}
+              options={{ state: true, presence: true, limit: 10 }}
+              showChannelSearch
+              additionalChannelSearchProps={{
+                searchForChannels: true,
+                searchQueryParams: {
+                  channelFilters: {
+                    filters: {
+                      members: {
+                        $in: [user?.$id],
+                      },
+                    }
                   }
                 }
-              }
-            }}
-          />
-          <Channel>
-            <Window>
-              <ChannelHeader />
-              <MessageList />
-              <MessageInput />
-            </Window>
-          </Channel>
+              }}
+            />
+            <Channel>
+              <Window>
+                <ChannelHeader />
+                <MessageList />
+                <MessageInput />
+              </Window>
+            </Channel>
           </div>
         </Chat>
       </div>
