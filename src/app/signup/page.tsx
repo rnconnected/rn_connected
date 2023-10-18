@@ -33,7 +33,9 @@ const Signup = () => {
     e.preventDefault();
     try {
       const userData = await appwriteService.createUserAccount(formData);
-      await account.createVerification("https://rn-connected.vercel.app/email_success");
+      await account.createVerification(
+        "https://rn-connected.vercel.app/email_success"
+      );
       if (userData) {
         setAuthStatus(true);
         router.push("/verifyEmail");
@@ -168,7 +170,14 @@ const Signup = () => {
                 </div>
               </div>
 
-              <SocialSignin />
+              {acctUser ? (
+                <>
+                  <div className="or">
+                    <small>Or</small>
+                  </div>
+                  <SocialSignin />
+                </>
+              ) : null}
             </div>
           </div>
           <div className="loginFooter">

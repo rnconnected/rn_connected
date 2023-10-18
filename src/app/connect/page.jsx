@@ -5,11 +5,13 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import "src/app/connect/connect.css";
 import Image from "next/image";
 import Footer from "@/components/footer/footer";
+import Slidemenu from "@/components/slideMenu/slidemenu";
 
 const Connect = () => {
   return (
     <>
       <NavBar />
+      <Slidemenu />
       <main className="connect_main">
         <div className="con_search_cont">
           <div className="inner_cont">

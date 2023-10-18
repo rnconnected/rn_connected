@@ -327,12 +327,11 @@ textarea::-webkit-scrollbar {
 
 
 /* not part of the main design */
-
 .chatpageCont {
+    width: 100%;
     display: flex;
 }
 
 .chatapi {
-    border: 2px solid blue;
     width: 100%;
 }

@@ -12,8 +12,6 @@ import useAuth from "@/context/useAuth";
 import appwriteService from "@/appwrite/appwriteconfig";
 import SocialSignin from "../googleAuth/google";
 
-
-
 const Login = () => {
   const router = useRouter();
   const { setAuthStatus } = useAuth();
@@ -21,7 +19,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-
 
   const [error, setError] = useState("");
 
@@ -104,7 +101,7 @@ const Login = () => {
               </button>
             </div>
 
-            <SocialSignin />
+            {acctUser ? <SocialSignin /> : null}
           </div>
 
           <div className="loginFooter">

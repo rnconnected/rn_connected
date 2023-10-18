@@ -20,7 +20,7 @@ const sidebar_List = [
     icon: <Icon icon="heroicons:user-group" />,
   },
   {
-    text: "Continuing Edu.",
+    text: "Continuing Edu...",
     href: "/dashboard/education",
     icon: <Icon icon="tabler:book" />,
   },
@@ -49,16 +49,16 @@ const sidebar_List = [
 const LeftNav = () => {
   const router = useRouter();
   const { setAuthStatus } = useAuth();
- 
-    const logoutuser = async () => {
-      try {
-        appwriteService.logout();
-        setAuthStatus(true);
-        router.push("/login");
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
+
+  const logoutuser = async () => {
+    try {
+      appwriteService.logout();
+      setAuthStatus(true);
+      router.push("/login");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   const NavItem = ({ text, href, icon }) => {
     const [isActive, setIsActive] = useState(false);

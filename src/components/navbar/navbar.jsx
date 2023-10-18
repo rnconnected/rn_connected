@@ -5,6 +5,7 @@ import Login from "../buttons/loginbtn";
 import Signup from "../buttons/signup";
 import Image from "next/image";
 import "./navbar.css";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const MENU_LIST = [
   {
@@ -29,7 +30,7 @@ const MENU_LIST = [
   },
 ];
 
-const NavBar = () => {
+const NavBar = ({}) => {
   const NavItem = ({ text, href }) => {
     const [isActive, setIsActive] = useState(false);
 
@@ -86,6 +87,15 @@ const NavBar = () => {
                 width={500}
               />
             </Link>
+          </div>
+          <div
+            className="hamburger"
+            onClick={() => {
+              document.querySelector(".darkcloud").classList.add("active");
+              document.querySelector(".slideMenu_cont").classList.add("active");
+            }}
+          >
+            <Icon icon="mdi:hamburger-menu" />
           </div>
           <div className="navBottom">
             {MENU_LIST.map((menu) => {

@@ -4,6 +4,7 @@ import Footer from "@/components/footer/footer";
 import "src/app/articles/page.css";
 import Image from "next/image";
 import Articles from "@/app/articles/article";
+import Slidemenu from "@/components/slideMenu/slidemenu";
 
 const articles_link = [
   { title_link: "lorem ipsum" },
@@ -55,6 +56,7 @@ const Article_page = () => {
   return (
     <div>
       <NavBar />
+      <Slidemenu />
       <div className="main_cont">
         <div className="articles_left_section">
           <div className="totw_cont">

@@ -1,12 +1,11 @@
-"use client"
-
-import React, { useEffect, useRef, useState } from 'react';
-import Peer from 'peerjs';
-import './video.css';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import Peer from "peerjs";
+import "./video.css";
 
 function App() {
-  const [peerId, setPeerId] = useState('');
-  const [remotePeerIdValue, setRemotePeerIdValue] = useState('');
+  const [peerId, setPeerId] = useState("");
+  const [remotePeerIdValue, setRemotePeerIdValue] = useState("");
   const remoteVideoRef = useRef(null);
   const currentUserVideoRef = useRef(null);
   const peerInstance = useRef(null);
@@ -14,11 +13,11 @@ function App() {
   useEffect(() => {
     const peer = new Peer();
 
-    peer.on('open', (id) => {
+    peer.on("open", (id) => {
       setPeerId(id);
     });
 
-    peer.on('call', (call) => {
+    peer.on("call", (call) => {
       const getUserMedia =
         navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||
@@ -28,7 +27,7 @@ function App() {
         currentUserVideoRef.current.srcObject = mediaStream;
         currentUserVideoRef.current.play();
         call.answer(mediaStream);
-        call.on('stream', function (remoteStream) {
+        call.on("stream", function (remoteStream) {
           remoteVideoRef.current.srcObject = remoteStream;
           remoteVideoRef.current.play();
         });
@@ -50,7 +49,7 @@ function App() {
 
       const call = peerInstance.current.call(remotePeerId, mediaStream);
 
-      call.on('stream', (remoteStream) => {
+      call.on("stream", (remoteStream) => {
         remoteVideoRef.current.srcObject = remoteStream;
         remoteVideoRef.current.play();
       });

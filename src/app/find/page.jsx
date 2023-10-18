@@ -9,6 +9,7 @@ import jobs from "./findJob.json";
 import ViewJob from "src/app/find/viewjob.jsx";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import JobCard from "./job_cards";
+import Slidemenu from "@/components/slideMenu/slidemenu";
 
 function displayArrayInPairs(array, pairIndex) {
   const startIndex = pairIndex * 6;
@@ -98,6 +99,7 @@ const Page = () => {
   return (
     <>
       <NavBar />
+      <Slidemenu />
       <Find_header />
       <div className="jobContainer">
         <div className="jobCard_section">

@@ -8,6 +8,7 @@ import "src/app/about/about.css";
 import Image from "next/image";
 import Faq from "@/app/about/faq";
 import Contact from "@/app/about/contact";
+import Slidemenu from "@/components/slideMenu/slidemenu";
 
 const iconKey = [
   {
@@ -67,6 +68,7 @@ const About = () => {
   return (
     <div>
       <NavBar />
+      <Slidemenu />
       <main>
         <div className="headIntro">
           <div className="header_bg">
