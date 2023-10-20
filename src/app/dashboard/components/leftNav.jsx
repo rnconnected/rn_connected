@@ -105,14 +105,24 @@ const LeftNav = () => {
             <Icon icon="tabler:settings" />
             <span className="Ltxt">Settings</span>
           </div>
-          <button
-            onClick={() => logoutuser()}
-            className="asideIcons"
-            title="Logout"
+
+
+          <form
+            action="/auth/Logout"
+            method="post"
+            // className="asideIcons"
+            // title="Logout"
+          // className="w-6 h-6 flex items-center"
           >
-            <Icon icon="tabler:logout" />
-            <span className="Ltxt">Logout</span>
-          </button>
+            <button
+              // onClick={() => logoutuser()}
+              className="asideIcons"
+              title="Logout"
+            >
+              <Icon icon="tabler:logout" />
+              <span className="Ltxt">Logout</span>
+            </button>
+          </form>
         </div>
       </div>
     </div>

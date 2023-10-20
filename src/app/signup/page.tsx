@@ -5,12 +5,9 @@ import User from "./user";
 import Nav from "../../components/login_header/nav";
 import "./signup.css";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import LoadJob from "../../components/load effects/loadjob";
 import SocialSignin from "../googleAuth/google";
-import appwriteService, { account } from "@/appwrite/appwriteconfig";
-import useAuth from "@/context/useAuth";
 
 const Signup = () => {
   const [acctUser, setAcctUser] = useState(true);
@@ -19,33 +16,6 @@ const Signup = () => {
   const [showEye, setShowEye] = useState(false);
   const [showEyeConfirm, setShowEyeConfirm] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  const router = useRouter();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState("");
-
-  const { setAuthStatus } = useAuth();
-
-  const create = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const userData = await appwriteService.createUserAccount(formData);
-      await account.createVerification(
-        "https://rn-connected.vercel.app/email_success"
-      );
-      if (userData) {
-        setAuthStatus(true);
-        router.push("/verifyEmail");
-      }
-    } catch (error: any) {
-      setError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -76,18 +46,16 @@ const Signup = () => {
           <div id="h2">
             <h2>Create RN free Account</h2>
           </div>
-          <div className="errorMessage">{error}</div>
-          <div id="signupform">
+          <form 
+           action="/auth/SignUp"
+           method="post"
+          id="signupform">
             <div className="formSection">
               <small className="label">Email</small>
               <input
                 placeholder="email e.g justincase@gmail.com"
                 type="text"
                 name="email"
-                value={formData.email}
-                onChange={(e) => {
-                  setFormData((prev) => ({ ...prev, email: e.target.value }));
-                }}
                 id="email"
                 className="input"
                 required
@@ -99,15 +67,6 @@ const Signup = () => {
                 placeholder="password"
                 type={showPassword ? "text" : "password"}
                 id="password"
-                value={formData.password}
-                onChange={(e) => {
-                  setFormData((prev) => ({
-                    ...prev,
-                    password: e.target.value,
-                  }));
-                  const rps = document.querySelector("#enterPassword");
-                  e.target.value !== "" ? setShowEye(true) : setShowEye(false);
-                }}
                 name="password"
                 className="input"
                 required
@@ -131,7 +90,6 @@ const Signup = () => {
                 placeholder="confirm password"
                 type={showConfirmPassword ? "text" : "password"}
                 id="re_enterPassword"
-                // value={formData.Confirmpassword}
                 onChange={(e) => {
                   const rps = document.querySelector("#re_enterPassword");
                   e.target.value !== ""
@@ -159,11 +117,6 @@ const Signup = () => {
               <div className="fit">
                 <div className="confirmLoginBtn">
                   <button
-                    type="submit"
-                    onClick={(e) => {
-                      create(e as unknown as FormEvent<HTMLFormElement>);
-                      setIsLoading(true);
-                    }}
                   >
                     Create account
                   </button>
@@ -179,7 +132,7 @@ const Signup = () => {
                 </>
               ) : null}
             </div>
-          </div>
+          </form>
           <div className="loginFooter">
             <small className="LFLeft">Already have an account?</small>
             <Link href={"/login"} className="className=">

@@ -3,7 +3,7 @@ import "src/app/dashboard/feeds/feeds_components/rightNav.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import appwriteService from "@/appwrite/appwriteconfig";
+
 
 const Suggested_Connection = [
   {
@@ -36,24 +36,7 @@ const footerContent = [
 ];
 
 const RightNav = () => {
-  const [user, setUser] = useState();
-
-  const fetchUser = async () => {
-    try {
-      const data = await appwriteService.getCurrentUser();
-      setUser(data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  // Call fetchUser directly when needed, for example:
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  console.log(user);
-
+  
   const Suggested_user = ({ userName, position, img }) => {
     return (
       <>
@@ -74,17 +57,16 @@ const RightNav = () => {
   };
 
   return (
-    user && (
       <>
         <div className="intro">
           <div className="intro_upper">
             <div className="intro_dp">
               {/* <Image src={"/RNlogo/logo1.png"} height={50} width={50} alt="hey" /> */}
-              <div className="intro_dpImg">{user.profile}</div>
+              <div className="intro_dpImg"></div>
             </div>
             
-            <div className="intro_name">{user.name}</div>
-            <div className="intro_title">{user.email}</div>
+            <div className="intro_name">Oluwadamilare Daniel</div>
+            <div className="intro_title">example@gmail.com</div>
           </div>
           <div className="intro_txt">
             I am a registered nurse for over 10 years. I earned my RN certification at University of America more...
@@ -128,7 +110,6 @@ const RightNav = () => {
           <div className="footer_txt">© 2023 RN Connected</div>
         </div>
       </>
-    )
   );
 };
 

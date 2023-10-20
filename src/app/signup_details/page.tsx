@@ -2,49 +2,11 @@
 import Nav from "@/components/login_header/nav";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import "src/app/signup_details/details.css";
-import React, { useState, useEffect, FormEvent } from 'react';
+import React from 'react';
 
-import { useRouter } from "next/navigation";
-
-import LoadJob from "@/components/load effects/loadjob";
-import useAuth from "@/context/useAuth";
-import appwriteService from "@/appwrite/appwriteconfig";
 
 
 const UpdateUser = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const router = useRouter();
-  const [formData, setFormData] = useState({
-    fullname: "", // Combine first name and last name here
-    phone: "",
-    firstname: "", // Add these properties
-    lastname: "", // Add these properties
-  });
-  const [error, setError] = useState("");
-
-  const { setAuthStatus } = useAuth();
-
-  const create = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      // Combine first name and last name into formData.fullname
-      const fullName = `${formData.firstname} ${formData.lastname}`;
-      const updatedFormData = { ...formData, fullname: fullName };
-
-      await appwriteService.updatefullname(updatedFormData);
-      await appwriteService.updatephonenumber(updatedFormData);
-      setAuthStatus(true);
-      router.push("/dashboard/feeds");
-    } catch (error: any) {
-      setError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-
-
   return (
     <>
       <Nav />
@@ -70,7 +32,12 @@ const UpdateUser = () => {
           </div>
           {/* end of the stage cont */}
 
-          <div className="detail_lower">
+          <form
+            className="info_Section"
+            action="/auth/SignupDetails"
+            method="post"
+          >
+
             <div className="h2">Enter your personal details</div>
 
             {/* these are the input area and their labels respectively */}
@@ -80,13 +47,6 @@ const UpdateUser = () => {
               <input
                 placeholder="e.g Samson"
                 type="text"
-                value={formData.firstname}
-                onChange={(e) => {
-                  setFormData((prev) => ({
-                    ...prev,
-                    firstname: e.target.value,
-                  }));
-                }}
                 name="Firstname"
                 id="fname"
                 className="input"
@@ -101,13 +61,6 @@ const UpdateUser = () => {
               <input
                 placeholder="e.g Samson"
                 type="text"
-                value={formData.lastname}
-                onChange={(e) => {
-                  setFormData((prev) => ({
-                    ...prev,
-                    lastname: e.target.value,
-                  }));
-                }}
                 name="lastname"
                 id="lname"
                 className="input"
@@ -122,13 +75,6 @@ const UpdateUser = () => {
               <input
                 placeholder="e.g +1234567890"
                 type="phone"
-                value={formData.phone}
-                onChange={(e) => {
-                  setFormData((prev) => ({
-                    ...prev,
-                    phone: e.target.value,
-                  }));
-                }}
                 name="phone"
                 id="phone"
                 className="input"
@@ -139,21 +85,11 @@ const UpdateUser = () => {
 
             <div className="confirm_section">
               <button className="confirm_btn" type="submit"
-
-                onClick={(e) => {
-                  create(e as unknown as FormEvent<HTMLFormElement>);
-                  setIsLoading(true);
-                }}
               >Confirm</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-      {isLoading && (
-        <div className="loadOverlay active">
-          <LoadJob />
-        </div>
-      )}
     </>
   );
 };

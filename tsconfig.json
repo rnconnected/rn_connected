@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/layout.jsx", "src/app/page.jsx", "src/app/dashboard/messages/page.jsx", "src/app/dashboard/feeds/feeds_components/postCards.jsx", "src/app/dashboard/feeds/feeds_components/make_post.jsx", "src/app/dashboard/agora/page.jsx", "src/app/dashboard/messages/video/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/layout.jsx", "src/app/page.jsx", "src/app/dashboard/messages/page.tsx", "src/app/dashboard/feeds/feeds_components/postCards.jsx", "src/app/dashboard/feeds/feeds_components/make_post.jsx", "src/app/dashboard/agora/page.jsx", "src/app/dashboard/messages/video/page.jsx"],
   "exclude": ["node_modules"]
 }
