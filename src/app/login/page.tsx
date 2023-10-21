@@ -12,7 +12,7 @@ const Login = () => {
       <div className="container">
         <form
           className="info_Section"
-          action="/auth/Login"
+          action="/auth/sign-in"
           method="post"
         >
           <div className="inputSection">

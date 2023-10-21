@@ -47,7 +47,7 @@ const Signup = () => {
             <h2>Create RN free Account</h2>
           </div>
           <form 
-           action="/auth/SignUp"
+           action="/auth/sign-up"
            method="post"
           id="signupform">
             <div className="formSection">

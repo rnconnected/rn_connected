@@ -1,109 +1,40 @@
-'use client';
+import Messages from "./components/Messages";
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import Link from 'next/link';
+import "src/app/dashboard/messages/page.css";
+import LeftNav from "../components/leftNav";
 
-import { useEffect, useState } from 'react';
+export const dynamic = 'force-dynamic';
 
-import { StreamChat, ChannelSort, ChannelFilters } from 'stream-chat';
-import { ChannelList, Chat } from 'stream-chat-react';
+export default async function Index() {
+  const supabase = createServerComponentClient({ cookies });
 
-import { Channel } from '@/app/dashboard/messages/components/Channel';
-import {
-  StreamTheme,
-  StreamVideo,
-  StreamVideoClient,
-} from '@stream-io/video-react-sdk';
-
-import { Video } from '@/app/dashboard/messages/components/Video';
-import '@stream-io/video-react-sdk/dist/css/styles.css';
-import '../messages/components/layout.css';
-import '../messages/components/styles/index.scss';
-
-import { User } from '@supabase/supabase-js';
-import ChannelListHeader from '@/app/dashboard/messages/components/ChannelListHeader';
-
-export default function Messages({ user }: { user: User }) {
-  const apiKey = process.env.NEXT_PUBLIC_REACT_APP_STREAM_KEY || 'Set API Key';
-
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  const chatClient = StreamChat.getInstance(apiKey);
-  const [videoClient, setVideoClient] = useState<StreamVideoClient>();
-
-  const sort: ChannelSort = { last_message_at: -1 };
-  const filters: ChannelFilters = {
-    type: 'messaging',
-    members: { $in: [user.id] },
-  };
-
-  const chatUser = chatClient.user;
-
-  useEffect(() => {
-    console.log('user', user);
-    const userId = user.id;
-    fetch("/api/create-user", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ userId: userId }),
-    })
-      .then(async (res) => {
-        if (res.status === 200) {
-          const response = await res.json();
-          console.log(response);
-  
-          await chatClient.connectUser({ id: userId }, response.userToken);
-  
-          const _videoClient = new StreamVideoClient({
-            apiKey,
-            user: chatUser,
-            token: response.userToken,
-          });
-  
-          await _videoClient.connectUser({ id: userId }, response.userToken);
-  
-          setVideoClient(_videoClient);
-  
-          setIsLoading(false);
-        } else {
-          // Handle the error, e.g., show an error message
-          console.error('Error in response. Status code:', res.status);
-          setIsLoading(false); // You may want to set isLoading to false even in case of an error
-        }
-      })
-      .catch((error) => {
-        // Handle network or other errors
-        console.error('An error occurred while fetching data:', error);
-        setIsLoading(false);
-      });
-  }, []);
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <>
-      {isLoading && (
-        <div className="text-white w-full flex items-center justify-center">
-          <p>Loading…</p>
-        </div>
-      )}
-      {!isLoading && videoClient && (
-        <div id="root">
-          <Chat client={chatClient}>
-            <StreamVideo client={videoClient}>
-              <StreamTheme as="main" className="main-container">
-                <div className="channel-list-container">
-                  <ChannelListHeader user={chatUser} />
-                  <ChannelList
-                    sort={sort}
-                    filters={filters}
-                    showChannelSearch
-                  />
+     
+        <div className="w-full h-screen flex flex-col items-center px-8 pt-8 custom">
+          {!user && (
+            <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
+              <div className="w-full max-w-4xl flex justify-end items-center p-3 text-sm text-foreground">
+                <div>
+                  <Link
+                    href="/login"
+                    className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+                  >
+                    Login
+                  </Link>
                 </div>
-                <Channel />
-                <Video />
-              </StreamTheme>
-            </StreamVideo>
-          </Chat>
+              </div>
+            </nav>
+          )}
+          {user && <Messages user={user} />}
         </div>
-      )}
+     
     </>
   );
 }

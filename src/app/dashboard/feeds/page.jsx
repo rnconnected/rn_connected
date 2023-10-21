@@ -1,52 +1,36 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import "src/app/dashboard/feeds/feeds.css";
-import LeftNav from "src/app/dashboard/components/leftNav";
-import TopNav from "src/app/dashboard/feeds/feeds_components/topNav.jsx";
-import PostCard from "src/app/dashboard/feeds/feeds_components/postCards.jsx";
-import RightNav from "src/app/dashboard/feeds/feeds_components/rightNav.jsx";
-import Search_feeds from "./feeds_components/search_head";
+import Profile from "./feedsData/page";
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import Link from 'next/link';
 
-const Profile = () => {
-  const [makepostActive, setMakepostActive] = useState(false);
-  const handleMakePost = () => {
-    if (makepostActive) {
-      document.querySelector(".mp_bgCont").classList.add("active");
-    } else {
-      document.querySelector(".mp_bgCont").classList.remove("active");
-    }
-  };
+export const dynamic = 'force-dynamic';
 
-  useEffect(() => {
-    handleMakePost();
-  });
+export default async function Index() {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <>
-      <div className="pageCont">
-        <div className="leftbar">
-          <LeftNav />
+        <div className="w-full h-screen flex flex-col items-center px-8 pt-8 custom">
+          {!user && (
+            <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
+              <div className="w-full max-w-4xl flex justify-end items-center p-3 text-sm text-foreground">
+                <div>
+                  <Link
+                    href="/login"
+                    className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+                  >
+                    Login
+                  </Link>
+                </div>
+              </div>
+            </nav>
+          )}
+          {user && <Profile user={user} />}
         </div>
-        <div className="otherHalf">
-          <div className="top_nav">
-            <Search_feeds />
-          </div>
-          <div className="bottomHalf">
-            <div className="posts">
-              <TopNav
-                makepostActive={makepostActive}
-                setMakepostActive={setMakepostActive}
-                handleMakePost={handleMakePost}
-              />
-              <PostCard />
-            </div>
-            <div className="suggested_connect">
-              <RightNav />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
-};
-
-export default Profile;
+}

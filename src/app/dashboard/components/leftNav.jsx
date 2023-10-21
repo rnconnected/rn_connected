@@ -108,7 +108,7 @@ const LeftNav = () => {
 
 
           <form
-            action="/auth/Logout"
+            action="/auth/sign-out"
             method="post"
             // className="asideIcons"
             // title="Logout"
