@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
-import "src/app/dashboard/feeds/feeds_components/rightNav.css";
+import "src/app/dashboard/feeds/feeds_components/components/rightNav.css";
 import Image from "next/image";
 import Link from "next/link";
-
 import { Icon } from "@iconify/react";
+import ProfileCard from "../profileCard";
 
 
 const Suggested_Connection = [
@@ -37,10 +39,12 @@ const footerContent = [
 ];
 
 const RightNav = () => {
-  
-  const Suggested_user = ({ userName, position, img }) => {
+
+
+  const Suggested_user =({ userName, position, img })  => {
     return (
       <>
+      
         <div className="suggested_user">
           <div className="gg">
             <div className="user_img">
@@ -58,21 +62,9 @@ const RightNav = () => {
   };
 
   return (
+ 
       <>
-        <div className="intro">
-          <div className="intro_upper">
-            <div className="intro_dp">
-              {/* <Image src={"/RNlogo/logo1.png"} height={50} width={50} alt="hey" /> */}
-              <div className="intro_dpImg"></div>
-            </div>
-            
-            <div className="intro_name">Oluwadamilare Daniel</div>
-            <div className="intro_title">example@gmail.com</div>
-          </div>
-          <div className="intro_txt">
-            I am a registered nurse for over 10 years. I earned my RN certification at University of America more...
-          </div>
-        </div>
+      <ProfileCard />
         <div className="Rnav_cont">
           <div className="suggest_txt">Suggested Connections</div>
           <div className="eachSuggestion">

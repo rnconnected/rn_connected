@@ -30,6 +30,7 @@ export default async function Index() {
             </nav>
           )}
           {user && <Profile user={user} />}
+    
         </div>
     </>
   );

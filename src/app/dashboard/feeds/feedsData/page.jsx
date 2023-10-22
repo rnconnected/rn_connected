@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import "src/app/dashboard/feeds/feedsData/feeds.css";
 import LeftNav from "src/app/dashboard/components/leftNav";
-import TopNav from "src/app/dashboard/feeds/feeds_components/topNav.jsx";
-import PostCard from "src/app/dashboard/feeds/feeds_components/postCards.jsx";
-import RightNav from "src/app/dashboard/feeds/feeds_components/rightNav.jsx";
-import Search_feeds from "../feeds_components/search_head";
+import TopNav from "src/app/dashboard/feeds/feeds_components/components/topNav.jsx";
+import PostCard from "src/app/dashboard/feeds/feeds_components/components/postCards.jsx";
+import RightNav from "src/app/dashboard/feeds/feeds_components/components/rightNav.jsx";
+import Search_feeds from "../feeds_components/components/search_head";
 
 const Profile = () => {
   const [makepostActive, setMakepostActive] = useState(false);

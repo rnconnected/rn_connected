@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { getFeeds } from "./postCardData";
 import Image from "next/image";
-import "src/app/dashboard/feeds/feeds_components/postCards.css";
+import "src/app/dashboard/feeds/feeds_components/components/postCards.css";
 import { Icon } from "@iconify/react";
 import post_Card from "./postCards.json";
 import Commentbtn from "@/app/dashboard/feeds/feeds_components/pc_component/commentbtn";
 import Sharebtn from "@/app/dashboard/feeds/feeds_components/pc_component/pc_sharebtn";
-import Comment_section from "./pc_component/comment_section";
-import Comment_input from "./pc_component/input_comment";
+import Comment_section from "../pc_component/comment_section";
+import Comment_input from "../pc_component/input_comment";
 import Menulist from "@/app/dashboard/feeds/feeds_components/pc_component/menulist";
 
 export default function PostFeed() {

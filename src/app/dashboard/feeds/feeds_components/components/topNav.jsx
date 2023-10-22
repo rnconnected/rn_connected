@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import "src/app/dashboard/feeds/feeds_components/topNav.css";
+import "src/app/dashboard/feeds/feeds_components/components/topNav.css";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import Make_post from "src/app/dashboard/feeds/feeds_components/make_post.jsx";
-import User_dp from "../../components/user_dp";
+import Make_post from "src/app/dashboard/feeds/feeds_components/components/make_post.jsx";
+import User_dp from "../../../components/user_dp";
 
 const ProfileMedia = [
   {

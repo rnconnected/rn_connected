@@ -16,6 +16,24 @@ const Signup = () => {
   const [showEye, setShowEye] = useState(false);
   const [showEyeConfirm, setShowEyeConfirm] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [passwordMatch, setPasswordMatch] = useState(true);
+
+
+  const handleSignup = (e: FormEvent) => {
+    e.preventDefault();
+    const passwordInput = document.querySelector<HTMLInputElement>("password");
+    const reEnterPasswordInput = document.querySelector<HTMLInputElement>("re_enterPassword");
+
+    if (passwordInput && reEnterPasswordInput) {
+      if (passwordInput.value === reEnterPasswordInput.value) {
+        setPasswordMatch(true);
+        // Proceed with signup
+      } else {
+        setPasswordMatch(false);
+        // Show an error message or take appropriate action
+      }
+    }
+  };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -133,6 +151,11 @@ const Signup = () => {
               ) : null}
             </div>
           </form>
+          {passwordMatch === false && (
+        <div className="passwordMismatchError">
+          Passwords do not match. Please re-enter the passwords.
+        </div>
+      )}
           <div className="loginFooter">
             <small className="LFLeft">Already have an account?</small>
             <Link href={"/login"} className="className=">
