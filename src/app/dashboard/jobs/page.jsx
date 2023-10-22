@@ -4,7 +4,7 @@ import LeftNav from "src/app/dashboard/components/leftNav";
 import "./jobs.css";
 import { Icon } from "@iconify/react";
 import Nav from "./jobs_components/nav";
-import RightNav from "@/app/dashboard/feeds/feeds_components/rightNav";
+import RightNav from "@/app/dashboard/feeds/feeds_components/components/rightNav";
 import JobCard from "./jobs_components/jobcard";
 import jobInfo from "@/app/find/findJob.json";
 
