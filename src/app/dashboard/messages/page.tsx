@@ -1,11 +1,8 @@
-import Messages from "./components/Messages";
+// import Profile from "./feedsData/page";
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import Link from 'next/link';
-import "src/app/dashboard/messages/page.css";
-import LeftNav from "../components/leftNav";
-
-export const dynamic = 'force-dynamic';
+import Login from "@/app/login/page";
+import Messages from "./components/Messages";
 
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,27 +11,18 @@ export default async function Index() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  if (!user) {
+    // Render the login page when the user is not logged in
+    return (
+      <div className="w-full h-screen flex flex-col items-center px-8 pt-8 custom">
+        <Login />
+      </div>
+    );
+  }
+
   return (
-    <>
-     
-        <div className="w-full h-screen flex flex-col items-center px-8 pt-8 custom">
-          {!user && (
-            <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-              <div className="w-full max-w-4xl flex justify-end items-center p-3 text-sm text-foreground">
-                <div>
-                  <Link
-                    href="/login"
-                    className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
-                  >
-                    Login
-                  </Link>
-                </div>
-              </div>
-            </nav>
-          )}
-          {user && <Messages user={user} />}
-        </div>
-     
-    </>
+    <div className="w-full h-screen flex flex-col items-center px-8 pt-8 custom">
+      {user && <Messages user={user} />}
+    </div>
   );
 }
