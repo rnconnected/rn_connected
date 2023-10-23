@@ -4,8 +4,9 @@ import {
   MessageList,
   Thread,
   Window,
-} from 'stream-chat-react';
-import { ChannelHeader } from '../ChannelHeader';
+} from "stream-chat-react";
+import { ChannelHeader } from "../ChannelHeader";
+import "src/app/dashboard/messages/components/ChannelHeader/channelHeader.css";
 
 export const Channel = () => (
   <StreamChatChannel>

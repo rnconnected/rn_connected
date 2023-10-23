@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { StreamChat, ChannelSort, ChannelFilters } from 'stream-chat';
-import { ChannelList, Chat } from 'stream-chat-react';
+import { StreamChat, ChannelSort, ChannelFilters } from "stream-chat";
+import { ChannelList, Chat } from "stream-chat-react";
 
-import { Channel } from './Channel';
+import { Channel } from "./Channel";
 import {
   StreamTheme,
   StreamVideo,
   StreamVideoClient,
-} from '@stream-io/video-react-sdk';
+} from "@stream-io/video-react-sdk";
 
-import { Video } from './Video';
-import '@stream-io/video-react-sdk/dist/css/styles.css';
-import './layout.css';
-import './styles/index.scss';
+import { Video } from "./Video";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
+import "./layout.css";
+import "./styles/index.scss";
 
-import { User } from '@supabase/supabase-js';
-import LeftNav from '../../components/leftNav';
+import { User } from "@supabase/supabase-js";
+import LeftNav from "../../components/leftNav";
 
 export default function Messages({ user }: { user: User }) {
-  const apiKey = process.env.NEXT_PUBLIC_REACT_APP_STREAM_KEY || 'Set API Key';
+  const apiKey = process.env.NEXT_PUBLIC_REACT_APP_STREAM_KEY || "Set API Key";
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -30,19 +30,19 @@ export default function Messages({ user }: { user: User }) {
 
   const sort: ChannelSort = { last_message_at: -1 };
   const filters: ChannelFilters = {
-    type: 'messaging',
+    type: "messaging",
     members: { $in: [user.id] },
   };
 
   const chatUser = chatClient.user;
 
   useEffect(() => {
-    console.log('user', user);
+    console.log("user", user);
     const userId = user.id;
-    fetch('/api/create-user', {
-      method: 'POST',
+    fetch("/api/create-user", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ userId: userId }),
     })
@@ -50,37 +50,37 @@ export default function Messages({ user }: { user: User }) {
         if (res.status === 200) {
           const response = await res.json();
           console.log(response);
-  
+
           await chatClient.connectUser({ id: userId }, response.userToken);
-  
+
           const _videoClient = new StreamVideoClient({
             apiKey,
             user: chatUser,
             token: response.userToken,
           });
-  
+
           await _videoClient.connectUser({ id: userId }, response.userToken);
-  
+
           setVideoClient(_videoClient);
-  
+
           setIsLoading(false);
         } else {
-          // Handle the error, e.g., show an error message
-          console.error('Error in response. Status code:', res.status);
-          setIsLoading(false); // You may want to set isLoading to false even in case of an error
+          console.error("Error in response. Status code:", res.status);
+          setIsLoading(false);
         }
       })
       .catch((error) => {
-        // Handle network or other errors
-        console.error('An error occurred while fetching data:', error);
+        console.error("An error occurred while fetching data:", error);
         setIsLoading(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       {isLoading && (
         <div>
+          <LeftNav />
           <p>Loading…</p>
         </div>
       )}
