@@ -19,8 +19,6 @@ export type ChannelHeaderProps = {
   title?: string;
 };
 
-// export const MenuIcon = () => <Icon icon="material-symbols:arrow-back-ios" />;
-
 const UnMemoizedChannelHeader = (props: ChannelHeaderProps) => {
   const { image: overrideImage, live, title: overrideTitle } = props;
 
@@ -40,7 +38,6 @@ const UnMemoizedChannelHeader = (props: ChannelHeaderProps) => {
       className="str-chat__header-livestream str-chat__channel-header"
       id="str-chat__header"
     >
-
       <button aria-label="Menu" onClick={openMobileNav} className="backBtn">
         <Icon icon="material-symbols:arrow-back-ios" />
       </button>
@@ -70,15 +67,22 @@ const UnMemoizedChannelHeader = (props: ChannelHeaderProps) => {
         <p className="str-chat__header-livestream-left--members str-chat__channel-header-info">
           {!live && !!member_count && member_count > 0 && (
             <>
-              {t("{{ memberCount }} members", {
-                memberCount: member_count,
-              })}
-              ,{" "}
+              {/* {member_count === 1
+                ? t("offline")
+                : t("{{ memberCount }} members", {
+                    memberCount: member_count,
+                  })}
+              , */}
             </>
           )}
-          {t<string>("{{ watcherCount }} online", {
-            watcherCount: watcher_count,
-          })}
+
+          <>
+            {watcher_count === 2
+              ? t("online")
+              : t("offline", {
+                  watcherCount: watcher_count,
+                })}
+          </>
         </p>
       </div>
       <CreateCallButton />
