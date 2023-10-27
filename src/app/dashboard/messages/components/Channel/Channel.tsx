@@ -12,7 +12,9 @@ export const Channel = () => (
   <StreamChatChannel>
     <Window>
       <ChannelHeader />
-      <MessageList />
+      <div className="messageList">
+        <MessageList />
+      </div>
       <MessageInput focus />
     </Window>
     <Thread />

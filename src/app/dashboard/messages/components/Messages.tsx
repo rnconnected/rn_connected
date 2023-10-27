@@ -16,6 +16,7 @@ import { Video } from "./Video";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./layout.css";
 import "./styles/index.scss";
+import "src/app/dashboard/messages/page.css";
 
 import { User } from "@supabase/supabase-js";
 import LeftNav from "../../components/leftNav";
@@ -81,7 +82,7 @@ export default function Messages({ user }: { user: User }) {
       {isLoading && (
         <div>
           <LeftNav />
-          <p>Loading…</p>
+          <div>Loading...</div>
         </div>
       )}
       {!isLoading && videoClient && (

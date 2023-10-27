@@ -1,18 +1,19 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 import {
   MemberRequest,
   useStreamVideoClient,
-} from '@stream-io/video-react-sdk';
-import { useChannelStateContext } from 'stream-chat-react';
-import { customAlphabet } from 'nanoid';
+} from "@stream-io/video-react-sdk";
+import { useChannelStateContext } from "stream-chat-react";
+import { customAlphabet } from "nanoid";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const nanoid = customAlphabet(
-  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-  10,
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+  10
 );
 
-import type { LiteralStringForUnion, UR } from 'stream-chat';
-import { User } from '@stream-io/video-react-sdk';
+import type { LiteralStringForUnion, UR } from "stream-chat";
+import { User } from "@stream-io/video-react-sdk";
 
 export type AttachmentType = UR;
 export type ChannelType = UR & { subtitle?: string };
@@ -20,7 +21,7 @@ export type CommandType = LiteralStringForUnion;
 export type EventType = UR;
 export type MessageType = UR;
 export type ReactionType = UR;
-export type UserType = Omit<User, 'type'>;
+export type UserType = Omit<User, "type">;
 
 export type StreamChatType = {
   attachmentType: AttachmentType;
@@ -41,7 +42,7 @@ export const CreateCallButton = () => {
 
   const createCall = useCallback(() => {
     videoClient
-      ?.call('default', meetingId())
+      ?.call("default", meetingId())
       .getOrCreate({
         ring: true,
         data: {
@@ -51,12 +52,12 @@ export const CreateCallButton = () => {
           members: Object.values(channel.state.members).map<MemberRequest>(
             (member) => ({
               user_id: member.user_id!,
-            }),
+            })
           ),
         },
       })
       .then((call) => {
-        console.log('call', call);
+        console.log("call", call);
       });
   }, [videoClient, channel.cid, channel.state.members]);
 
@@ -67,7 +68,9 @@ export const CreateCallButton = () => {
       disabled={disableCreateCall}
       onClick={createCall}
     >
-      <span>Start a call</span>
+      <span className="callIcon">
+        <Icon icon="solar:phone-linear" />
+      </span>
     </button>
   );
 };

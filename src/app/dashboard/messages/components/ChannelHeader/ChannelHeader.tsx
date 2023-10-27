@@ -11,13 +11,12 @@ import { CreateCallButton, StreamChatType } from "../CreateCallButton";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 export type ChannelHeaderProps = {
-  /** Manually set the image to render, defaults to the Channel image */
   image?: string;
-  /** Show a little indicator that the Channel is live right now */
   live?: boolean;
-  /** Set title manually */
   title?: string;
 };
+
+export const MenuIcon = () => <Icon icon="material-symbols:arrow-back-ios" />;
 
 const UnMemoizedChannelHeader = (props: ChannelHeaderProps) => {
   const { image: overrideImage, live, title: overrideTitle } = props;
@@ -25,6 +24,7 @@ const UnMemoizedChannelHeader = (props: ChannelHeaderProps) => {
   const { channel, watcher_count } =
     useChannelStateContext<StreamChatType>("ChannelHeader");
   const { openMobileNav } = useChatContext<StreamChatType>("ChannelHeader");
+
   const { t } = useTranslationContext("ChannelHeader");
   const { displayImage, displayTitle } = useChannelPreviewInfo({
     channel,
@@ -39,7 +39,7 @@ const UnMemoizedChannelHeader = (props: ChannelHeaderProps) => {
       id="str-chat__header"
     >
       <button aria-label="Menu" onClick={openMobileNav} className="backBtn">
-        <Icon icon="material-symbols:arrow-back-ios" />
+        <MenuIcon />
       </button>
 
       <Avatar
@@ -75,7 +75,6 @@ const UnMemoizedChannelHeader = (props: ChannelHeaderProps) => {
               , */}
             </>
           )}
-
           <>
             {watcher_count === 2
               ? t("online")
