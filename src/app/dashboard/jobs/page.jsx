@@ -8,29 +8,6 @@ import RightNav from "@/app/dashboard/feeds/feeds_components/components/rightNav
 import JobCard from "./jobs_components/jobcard";
 import jobInfo from "@/app/find/findJob.json";
 
-const jobNav = [
-  {
-    href: "/dashboard/jobs",
-    icon: <Icon icon="solar:suitcase-tag-line-duotone" />,
-    text: "Available Jobs",
-  },
-  {
-    href: "/dashboard/jobs/another",
-    icon: <Icon icon="icon-park-outline:tag" />,
-    text: "My Jobs",
-  },
-  {
-    href: "/dashboard/jobs/another",
-    icon: <Icon icon="akar-icons:bell" />,
-    text: "Jobs alert",
-  },
-  {
-    href: "/dashboard/jobs/another",
-    icon: <Icon icon="ph:gear-bold" />,
-    text: "Application Settings",
-  },
-];
-
 const Jobs = () => {
   return (
     <>
@@ -39,7 +16,7 @@ const Jobs = () => {
           <LeftNav />
         </div>
         <div className="job_otherHalf">
-          <Nav jobNav={jobNav} />
+          <Nav/>
           <div className="filterJobs_section">
             <div className="filterJob_cont">
               <div className="select">

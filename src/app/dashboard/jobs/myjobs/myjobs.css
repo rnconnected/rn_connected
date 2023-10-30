@@ -1,0 +1,144 @@
+#myjob_pageCont {
+    background-color: #E7E8EE;
+}
+
+.myJobs_main {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.myjobs_Section {
+    margin-left: clamp(1rem, 2.5vw, 2rem);
+    margin-right: 1rem;
+    width: 65%;
+}
+
+.filterCont {
+    margin-bottom: 3rem;
+}
+
+.filters_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.filtered_result {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    gap: .3rem;
+}
+
+.filter {
+    border: 1px solid black;
+    padding: .3rem;
+    border-radius: 1rem;
+    width: calc(100% / 3);
+    text-align: center;
+}
+
+.filter.active {
+    background-color: #E7E8EE;
+    border: none;
+    box-shadow: 2px 2px 5px lightgray;
+}
+
+.filtered_card {
+    display: flex;
+    margin: .3rem;
+    align-items: center;
+    gap: 1rem;
+    padding: .7rem;
+    position: relative;
+    background-color: white;
+    border-radius: .7rem;
+    box-shadow: 2px 2px 5px lightgray;
+    z-index: 0;
+}
+
+.f_pics {
+    border: 1px solid;
+    width: clamp(3rem, 5vw, 3.5rem);
+    height: clamp(3rem, 5vw, 3.5rem);
+    border-radius: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f_details {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    font-size: clamp(.85rem, 2vw, 1rem);
+}
+
+.position_name {
+    font-weight: 550;
+    font-size: clamp(.9rem, 2vw, 1.15rem);
+}
+
+.status {
+    color: gray;
+}
+
+.menu {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+.menu:hover {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.menu:active {
+    transform: scale(.95);
+    background-color: rgba(0, 0, 0, .09);
+}
+
+.recommended_jobCont {
+    margin-top: 1rem;
+}
+
+.recommended_jobCont small {
+    color: gray;
+}
+
+.recommended_jobs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: clamp(.7rem, 2vw, 1rem);
+    margin-top: 1rem;
+}
+
+.myJobs_aside {
+    border: 2px solid blue;
+    height: fit-content;
+    width: 28%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .myjobs_Section {
+        width: 100%;
+    }
+
+    .myJobs_aside {
+        display: none;
+    }
+}
